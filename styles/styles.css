@@ -247,6 +247,8 @@ main .section.highlight {
  .COM styles "above the fold"
  */
 
+/* stylelint-disable */
+
 /* ResponsiveLayout */
 :root {
   --grid-width: 100vw;
