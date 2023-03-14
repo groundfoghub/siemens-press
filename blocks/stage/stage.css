@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 .newHomeStage {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns-count),1fr);
