@@ -13,7 +13,7 @@ import {
   loadCSS,
 } from './lib-franklin.js';
 
-import { decorateAsFluidwebPage } from './fluidweb.js'
+import { decorateAsFluidwebPage } from './fluidweb.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
