@@ -13,6 +13,8 @@ import {
   loadCSS,
 } from './lib-franklin.js';
 
+import { decorateAsFluidwebPage } from './fluidweb.js'
+
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
 
@@ -23,10 +25,11 @@ window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information 
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
+  const paragraph = main.querySelector('h1 + p');
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
+    section.append(buildBlock('stage', { elems: [picture, h1, paragraph] }));
     main.prepend(section);
   }
 }
@@ -64,6 +67,8 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+  decorateAsFluidwebPage(document.body);
+
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {

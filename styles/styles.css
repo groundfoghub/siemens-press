@@ -53,7 +53,7 @@
   }
 }
 
-body {
+/* body {
   font-size: var(--body-font-size-m);
   margin: 0;
   font-family: var(--body-font-family);
@@ -86,7 +86,7 @@ h6 { font-size: var(--heading-font-size-xs) }
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
-}
+} */
 
 hr {
   margin-top: 1.5em;
@@ -215,7 +215,7 @@ main img {
   width: 100%;
 }
 
-main .section {
+/* main .section {
   padding: 64px 16px;
 }
 
@@ -230,7 +230,7 @@ main .section {
     max-width: 1200px;
     margin: auto;
   }
-}
+} */
 
 /* progressive section appearance */
 main .section[data-section-status='loading'],
