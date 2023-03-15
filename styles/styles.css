@@ -321,8 +321,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/search-dark-1636cf99.svg);
-  mask-image: url(/img/svg/search-dark-1636cf99.svg)
+  -webkit-mask-image: url(/img/svg/search-dark.svg);
+  mask-image: url(/img/svg/search-dark.svg)
 }
 
 .newHomeHeaderSearch .newHomeHeaderSearch__clear {
@@ -350,8 +350,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/close-e99bd758.svg);
-  mask-image: url(/img/svg/close-e99bd758.svg)
+  -webkit-mask-image: url(/img/svg/close.svg);
+  mask-image: url(/img/svg/close.svg)
 }
 
 .newHomeHeaderSearch .newHomeHeaderSearch__input {
@@ -522,8 +522,8 @@ main .section.highlight {
   position: absolute;
   top: 6px;
   right: 5px;
-  -webkit-mask-image: url(/img/svg/arrow_right-cda7391e.svg);
-  mask-image: url(/img/svg/arrow_right-cda7391e.svg);
+  -webkit-mask-image: url(/img/svg/arrow_right.svg);
+  mask-image: url(/img/svg/arrow_right.svg);
   background-color: #707080;
   height: 100%;
   width: 6px;
@@ -602,8 +602,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/home-da33d739.svg);
-  mask-image: url(/img/svg/home-da33d739.svg);
+  -webkit-mask-image: url(/img/svg/home.svg);
+  mask-image: url(/img/svg/home.svg);
   background-color: var(--theme-color-14);
   position: absolute;
   top: 4px;
@@ -898,8 +898,8 @@ main .section.highlight {
   margin-right: 18px;
   width: 20px;
   height: 20px;
-  -webkit-mask-image: url(/img/svg/nh_globe-21b96f2b.svg);
-  mask-image: url(/img/svg/nh_globe-21b96f2b.svg)
+  -webkit-mask-image: url(/img/svg/nh_globe.svg);
+  mask-image: url(/img/svg/nh_globe.svg)
 }
 
 .newHomeHeader__regionSelector:hover,.newHomeHeader__regionSelector:active {
@@ -960,8 +960,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/close-e99bd758.svg);
-  mask-image: url(/img/svg/close-e99bd758.svg)
+  -webkit-mask-image: url(/img/svg/close.svg);
+  mask-image: url(/img/svg/close.svg)
 }
 
 .newHomeHeader__burgerMenuWrapper {
@@ -1010,8 +1010,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/menu-dark-acd14322.svg);
-  mask-image: url(/img/svg/menu-dark-acd14322.svg)
+  -webkit-mask-image: url(/img/svg/menu-dark.svg);
+  mask-image: url(/img/svg/menu-dark.svg)
 }
 
 .newHomeHeader__burgerMenu:focus-within:before {
@@ -1034,8 +1034,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/logo-dark-3958fff2.svg);
-  mask-image: url(/img/svg/logo-dark-3958fff2.svg)
+  -webkit-mask-image: url(/img/svg/logo-dark.svg);
+  mask-image: url(/img/svg/logo-dark.svg)
 }
 
 .newHomeHeader__backBtn {
@@ -1053,7 +1053,7 @@ main .section.highlight {
 }
 
 .newHomeHeader__backBtn:before {
-  content: url(/img/svg/back_btn-4507d2b2.svg);
+  content: url(/img/svg/back_btn.svg);
   position: relative;
   left: -10px
 }
