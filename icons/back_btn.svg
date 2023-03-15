@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="9px" viewBox="0 0 18 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Combined Shape</title>
+    <defs>
+        <path d="M20.5294286,7.32142857 L20.5294286,15.6785714 L13.2728571,11.5 L20.5294286,7.32142857 Z M10.7265,7.32142857 L10.7265,15.6785714 L3.47057143,11.5 L10.7265,7.32142857 Z" id="path-1"></path>
+    </defs>
+    <g id="Siemens-Icon-Font" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Siemens-icons/24px/double-arrow-backwards" transform="translate(-3.000000, -7.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Combined-Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

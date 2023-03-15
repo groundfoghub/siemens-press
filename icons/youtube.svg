@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+	<defs>
+		<path d="M21.6,7.2c-0.2-0.9-0.9-1.5-1.8-1.8C18.3,5,12,5,12,5S5.7,5,4.2,5.4C3.3,5.6,2.6,6.3,2.4,7.2C2,8.8,2,12,2,12
+		s0,3.3,0.4,4.8c0.2,0.9,0.9,1.5,1.8,1.8C5.8,19,12,19,12,19s6.3,0,7.8-0.4c0.9-0.2,1.5-0.9,1.8-1.8C22,15.3,22,12,22,12
+		S22,8.8,21.6,7.2z M10,15V9l5.2,3L10,15z" id="path-1"/>
+	</defs>
+	<g id="✅✅-Footer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Component-/-Footer-/-XS-" transform="translate(-222.000000, -171.000000)">
+            <g id="Fluid-Web-Icons/linked-in-Copy-9" transform="translate(222.000000, 171.859253)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="twitter" fill="#000028" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <rect id="Color" fill="transparent" mask="url(#mask-2)" x="-2" y="-3.85925316" width="24" height="24"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

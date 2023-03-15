@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="40px" viewBox="0 0 26 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 59.1 (101010) - https://sketch.com -->
+    <title>E98C3F29-EB31-4497-BB20-252A1781EC4F</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="26.6666667 55.3 41.94 40 26.6666667 24.7 31.3666667 20 51.3666662 40 31.3666667 60"></polygon>
+    </defs>
+    <g id="Gallery" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Framework-/-Gallery-/-L-/-light" transform="translate(-266.000000, -260.000000)">
+            <g id="ic_24/arrow_right" transform="translate(240.000000, 240.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Path" fill="#008484" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <g id="c/black-c/white" mask="url(#mask-2)" fill="#008484">
+                    <rect id="Rectangle" x="0" y="0" width="80" height="80"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

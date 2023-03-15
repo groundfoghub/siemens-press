@@ -1,0 +1,11 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="calender">
+<path id="calender_2" fill-rule="evenodd" clip-rule="evenodd" d="M2 2V22H22V2H2ZM20 20H4V9H20V20ZM4 7H20V4H4V7ZM7 11H9V13H7V11ZM13 11H11V13H13V11ZM15 11H17V13H15V11ZM9 15H7V17H9V15ZM11 15H13V17H11V15ZM17 15H15V17H17V15Z" fill="white"/>
+<mask id="mask0_2_5013" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="20" height="20">
+<path id="calender_3" fill-rule="evenodd" clip-rule="evenodd" d="M2 2V22H22V2H2ZM20 20H4V9H20V20ZM4 7H20V4H4V7ZM7 11H9V13H7V11ZM13 11H11V13H13V11ZM15 11H17V13H15V11ZM9 15H7V17H9V15ZM11 15H13V17H11V15ZM17 15H15V17H17V15Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_2_5013)">
+<rect id="Color" width="24" height="24" fill="white"/>
+</g>
+</g>
+</svg>
