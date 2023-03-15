@@ -24,8 +24,8 @@ await sleep();
 
 describe('Footer block', () => {
   it('Displays footer content', async () => {
-    const a = document.querySelector('footer a');
+    const a = document.querySelector('footer .newHomeFooter__copyrightWrapper a');
     expect(a).to.exist;
-    expect(a.href).to.equal('https://www.adobe.com/privacy.html');
+    expect(a.href).to.equal('https://www.siemens.com/global/en.html');
   });
 });
