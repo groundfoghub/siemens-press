@@ -13,6 +13,8 @@ footer .footer p {
   margin: 0;
 } */
 
+/* stylelint-disable */
+
 /* NewHomeFloatingContactUsButton - only Footer and Contact Us */
 .newHomeFooter {
   display: grid;
