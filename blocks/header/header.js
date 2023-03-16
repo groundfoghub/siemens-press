@@ -96,6 +96,34 @@ export default async function decorate(block) {
   const resp = await fetch(`${navPath}.plain.html`);
 
   if (resp.ok) {
+    const navWrapper = document.createElement('div');
+    navWrapper.classList.add('nav-wrapper', 'newHomeHeader__topBar');
+
+    // Build Logo
+    const logoContainer = document.createElement('div');
+    logoContainer.classList.add('newHomeHeader__logoContainer');
+
+    const logo = document.createElement('a');
+    logo.classList.add('newHomeHeader__logo', 'newHomeLink', 'newHomeHeader__logo');
+
+    const logoSiemens = document.createElement('div');
+    logoSiemens.classList.add('newHomeHeader__logoSiemens');
+
+    logo.append(logoSiemens);
+    logoContainer.append(logo);
+    navWrapper.append(logoContainer);
+
+    // Build search
+    const burgerMenuWrapper = document.createElement('div');
+    burgerMenuWrapper.classList.add('newHomeHeader__burgerMenuWrapper');
+    const burgerMenu = document.createElement('button');
+    burgerMenu.classList.add('newHomeHeader__burgerMenu');
+
+    burgerMenuWrapper.append(burgerMenu);
+    navWrapper.append(burgerMenuWrapper);
+
+    // Original code
+
     const html = await resp.text();
 
     // decorate nav DOM
@@ -136,10 +164,12 @@ export default async function decorate(block) {
     toggleMenu(nav, navSections, isDesktop.matches);
     isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+    // navWrapper.append(nav);
     decorateIcons(nav);
-    const navWrapper = document.createElement('div');
-    navWrapper.className = 'nav-wrapper';
-    navWrapper.append(nav);
+
     block.append(navWrapper);
   }
+
+  // const header = document.querySelector('header');
+  block.classList.add('newHomeHeader');
 }

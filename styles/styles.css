@@ -998,7 +998,9 @@ main .section[data-section-status='initialized'] {
   width: 24px;
   height: 24px;
   margin-top: 5px;
-  margin-left: 28px
+  margin-left: 28px;
+
+  border-radius: 0;
 }
 
 .newHomeHeader__burgerMenu:before {
@@ -1035,8 +1037,8 @@ main .section[data-section-status='initialized'] {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/icons/logo-dark.svg);
-  mask-image: url(/icons/logo-dark.svg)
+  -webkit-mask-image: url(/assets/logo/logo-dark.svg);
+  mask-image: url(/assets/logo/logo-dark.svg)
 }
 
 .newHomeHeader__backBtn {
