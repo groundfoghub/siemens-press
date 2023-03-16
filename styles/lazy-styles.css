@@ -6,7 +6,7 @@
 
   @font-face {
     font-family: Siemens Sans Black;
-    src: url(/fonts/woff2/SiemensSans_Prof_Black-616fb6d5.woff2) format("woff2");
+    src: url(/fonts/woff2/SiemensSans_Prof_Black.woff2) format("woff2");
     font-weight: 400;
     font-display: swap
 }
@@ -15,7 +15,7 @@
     font-family: Siemens Sans Black;
     font-style: italic;
     font-display: swap;
-    src: url(/fonts/woff2/SiemensSans_Prof_BlackItalic-2927466f.woff2) format("woff2")
+    src: url(/fonts/woff2/SiemensSans_Prof_BlackItalic.woff2) format("woff2")
 }
 
 @font-face {
@@ -23,7 +23,7 @@
     font-style: bold;
     font-weight: 700;
     font-display: swap;
-    src: url(/fonts/woff2/SiemensSans_Prof_Bold-cbe587a0.woff2) format("woff2")
+    src: url(/fonts/woff2/SiemensSans_Prof_Bold.woff2) format("woff2")
 }
 
 @font-face {
@@ -31,21 +31,21 @@
     font-style: italic;
     font-weight: 700;
     font-display: swap;
-    src: url(/fonts/woff2/SiemensSans_Prof_BoldItalic-dbe57068.woff2) format("woff2")
+    src: url(/fonts/woff2/SiemensSans_Prof_BoldItalic.woff2) format("woff2")
 }
 
 @font-face {
     font-family: Siemens Sans Prof Italic;
     font-style: italic;
     font-display: swap;
-    src: url(/fonts/woff2/SiemensSans_Prof_Italic-af05ed41.woff2) format("woff2")
+    src: url(/fonts/woff2/SiemensSans_Prof_Italic.woff2) format("woff2")
 }
 
 @font-face {
     font-family: Siemens Sans Roman;
     font-style: italic;
     font-display: swap;
-    src: url(/fonts/woff2/SiemensSans_Prof_Roman-369cbdc0.woff2) format("woff2")
+    src: url(/fonts/woff2/SiemensSans_Prof_Roman.woff2) format("woff2")
 }
 
 @-webkit-keyframes slideLeftProp {
@@ -905,8 +905,8 @@
     width: 8px;
     height: 12px;
     margin-bottom: 0;
-    -webkit-mask-image: url(/img/svg/arrow_right.svg);
-    mask-image: url(/img/svg/arrow_right.svg)
+    -webkit-mask-image: url(/icons/arrow_right.svg);
+    mask-image: url(/icons/arrow_right.svg)
 }
 
 .newHomeLink.newHomeLink--internal.newHomeLink--listDecorator:before {
@@ -923,16 +923,16 @@
     transform: rotate(-45deg);
     height: 15px;
     margin-bottom: 0;
-    -webkit-mask-image: url(/img/svg/arrow_forward.svg);
-    mask-image: url(/img/svg/arrow_forward.svg)
+    -webkit-mask-image: url(/icons/arrow_forward.svg);
+    mask-image: url(/icons/arrow_forward.svg)
 }
 
 .newHomeLink.newHomeLink--mail:before,.newHomeLink.newHomeLink--mail:after {
     width: 14px;
     height: 14px;
     margin-bottom: -3px;
-    -webkit-mask-image: url(/img/svg/envelop_white.svg);
-    mask-image: url(/img/svg/envelop_white.svg)
+    -webkit-mask-image: url(/icons/envelop_white.svg);
+    mask-image: url(/icons/envelop_white.svg)
 }
 
 .newHomeLink.newHomeLink--mail.newHomeLink--listDecorator:before {
@@ -949,8 +949,8 @@
     width: 16px;
     height: 15px;
     margin-bottom: -2px;
-    -webkit-mask-image: url(/img/svg/image.svg);
-    mask-image: url(/img/svg/image.svg)
+    -webkit-mask-image: url(/icons/image.svg);
+    mask-image: url(/icons/image.svg)
 }
 
 .newHomeLink.newHomeLink--image.newHomeLink--listDecorator:before {
@@ -966,8 +966,8 @@
 .newHomeLink.newHomeLink--calendar:before,.newHomeLink.newHomeLink--calendar:after {
     width: 16px;
     margin-bottom: -3px;
-    -webkit-mask-image: url(/img/svg/calendar.svg);
-    mask-image: url(/img/svg/calendar.svg)
+    -webkit-mask-image: url(/icons/calendar.svg);
+    mask-image: url(/icons/calendar.svg)
 }
 
 .newHomeLink.newHomeLink--calendar.newHomeLink--listDecorator:before {
@@ -983,102 +983,102 @@
 .newHomeLink.newHomeLink--instagram:before,.newHomeLink.newHomeLink--instagram:after {
     height: 18px;
     margin-bottom: -3px;
-    -webkit-mask-image: url(/img/svg/instagram.svg);
-    mask-image: url(/img/svg/instagram.svg)
+    -webkit-mask-image: url(/icons/instagram.svg);
+    mask-image: url(/icons/instagram.svg)
 }
 
 .newHomeLink.newHomeLink--linkedin:before,.newHomeLink.newHomeLink--linkedin:after {
     height: 18px;
     margin-bottom: -3px;
-    -webkit-mask-image: url(/img/svg/linkedin.svg);
-    mask-image: url(/img/svg/linkedin.svg)
+    -webkit-mask-image: url(/icons/linkedin.svg);
+    mask-image: url(/icons/linkedin.svg)
 }
 
 .newHomeLink.newHomeLink--tiktok:before,.newHomeLink.newHomeLink--tiktok:after {
     height: 18px;
     margin-bottom: -3px;
-    -webkit-mask-image: url(/img/svg/tiktok.svg);
-    mask-image: url(/img/svg/tiktok.svg)
+    -webkit-mask-image: url(/icons/tiktok.svg);
+    mask-image: url(/icons/tiktok.svg)
 }
 
 .newHomeLink.newHomeLink--facebook:before,.newHomeLink.newHomeLink--facebook:after {
-    -webkit-mask-image: url(/img/svg/facebook.svg);
-    mask-image: url(/img/svg/facebook.svg)
+    -webkit-mask-image: url(/icons/facebook.svg);
+    mask-image: url(/icons/facebook.svg)
 }
 
 .newHomeLink.newHomeLink--youtube:before,.newHomeLink.newHomeLink--youtube:after {
-    -webkit-mask-image: url(/img/svg/youtube.svg);
-    mask-image: url(/img/svg/youtube.svg)
+    -webkit-mask-image: url(/icons/youtube.svg);
+    mask-image: url(/icons/youtube.svg)
 }
 
 .newHomeLink.newHomeLink--twitter:before,.newHomeLink.newHomeLink--twitter:after {
-    -webkit-mask-image: url(/img/svg/twitter.svg);
-    mask-image: url(/img/svg/twitter.svg)
+    -webkit-mask-image: url(/icons/twitter.svg);
+    mask-image: url(/icons/twitter.svg)
 }
 
 .newHomeLink.newHomeLink--telegram:before,.newHomeLink.newHomeLink--telegram:after {
-    -webkit-mask-image: url(/img/svg/telegram.svg);
-    mask-image: url(/img/svg/telegram.svg)
+    -webkit-mask-image: url(/icons/telegram.svg);
+    mask-image: url(/icons/telegram.svg)
 }
 
 .newHomeLink.newHomeLink--weibo:before,.newHomeLink.newHomeLink--weibo:after {
-    -webkit-mask-image: url(/img/svg/weibo.svg);
-    mask-image: url(/img/svg/weibo.svg)
+    -webkit-mask-image: url(/icons/weibo.svg);
+    mask-image: url(/icons/weibo.svg)
 }
 
 .newHomeLink.newHomeLink--wechat:before,.newHomeLink.newHomeLink--wechat:after {
-    -webkit-mask-image: url(/img/svg/wechat.svg);
-    mask-image: url(/img/svg/wechat.svg)
+    -webkit-mask-image: url(/icons/wechat.svg);
+    mask-image: url(/icons/wechat.svg)
 }
 
 .newHomeLink.newHomeLink--vk:before,.newHomeLink.newHomeLink--vk:after {
-    -webkit-mask-image: url(/img/svg/vk.svg);
-    mask-image: url(/img/svg/vk.svg)
+    -webkit-mask-image: url(/icons/vk.svg);
+    mask-image: url(/icons/vk.svg)
 }
 
 .newHomeLink.newHomeLink--bilibili:before,.newHomeLink.newHomeLink--bilibili:after {
-    -webkit-mask-image: url(/img/svg/bilibili.svg);
-    mask-image: url(/img/svg/bilibili.svg)
+    -webkit-mask-image: url(/icons/bilibili.svg);
+    mask-image: url(/icons/bilibili.svg)
 }
 
 .newHomeLink.newHomeLink--yammer:before,.newHomeLink.newHomeLink--yammer:after {
-    -webkit-mask-image: url(/img/svg/yammer.svg);
-    mask-image: url(/img/svg/yammer.svg)
+    -webkit-mask-image: url(/icons/yammer.svg);
+    mask-image: url(/icons/yammer.svg)
 }
 
 .newHomeLink.newHomeLink--pdf:before,.newHomeLink.newHomeLink--pdf:after {
-    -webkit-mask-image: url(/img/svg/document_pdf.svg);
-    mask-image: url(/img/svg/document_pdf.svg)
+    -webkit-mask-image: url(/icons/document_pdf.svg);
+    mask-image: url(/icons/document_pdf.svg)
 }
 
 .newHomeLink.newHomeLink--document:before,.newHomeLink.newHomeLink--document:after {
-    -webkit-mask-image: url(/img/svg/document.svg);
-    mask-image: url(/img/svg/document.svg)
+    -webkit-mask-image: url(/icons/document.svg);
+    mask-image: url(/icons/document.svg)
 }
 
 .newHomeLink.newHomeLink--powerpoint:before,.newHomeLink.newHomeLink--powerpoint:after {
-    -webkit-mask-image: url(/img/svg/document_ppt.svg);
-    mask-image: url(/img/svg/document_ppt.svg)
+    -webkit-mask-image: url(/icons/document_ppt.svg);
+    mask-image: url(/icons/document_ppt.svg)
 }
 
 .newHomeLink.newHomeLink--word:before,.newHomeLink.newHomeLink--word:after {
-    -webkit-mask-image: url(/img/svg/document_doc.svg);
-    mask-image: url(/img/svg/document_doc.svg)
+    -webkit-mask-image: url(/icons/document_doc.svg);
+    mask-image: url(/icons/document_doc.svg)
 }
 
 .newHomeLink.newHomeLink--excel:before,.newHomeLink.newHomeLink--excel:after {
-    -webkit-mask-image: url(/img/svg/document_xls.svg);
-    mask-image: url(/img/svg/document_xls.svg)
+    -webkit-mask-image: url(/icons/document_xls.svg);
+    mask-image: url(/icons/document_xls.svg)
 }
 
 .newHomeLink.newHomeLink--archive:before,.newHomeLink.newHomeLink--archive:after {
-    -webkit-mask-image: url(/img/svg/document_zip.svg);
-    mask-image: url(/img/svg/document_zip.svg)
+    -webkit-mask-image: url(/icons/document_zip.svg);
+    mask-image: url(/icons/document_zip.svg)
 }
 
 .newHomeLink.newHomeLink--phone:before,.newHomeLink.newHomeLink--phone:after {
-    -webkit-mask-image: url(/img/svg/phone.svg);
-    mask-image: url(/img/svg/phone.svg)
+    -webkit-mask-image: url(/icons/phone.svg);
+    mask-image: url(/icons/phone.svg)
 }
 
 .fluidLoader {
@@ -1202,28 +1202,28 @@
 }
 
 .newHomeButton.newHomeButton--icon.newHomeButton--iconArrowRight:after {
-    -webkit-mask-image: url(/img/svg/arrow_right_black_no_bg.svg);
-    mask-image: url(/img/svg/arrow_right_black_no_bg.svg)
+    -webkit-mask-image: url(/icons/arrow_right_black_no_bg.svg);
+    mask-image: url(/icons/arrow_right_black_no_bg.svg)
 }
 
 .newHomeButton.newHomeButton--icon.newHomeButton--iconArrowForward:after {
-    -webkit-mask-image: url(/img/svg/arrow_forward.svg);
-    mask-image: url(/img/svg/arrow_forward.svg)
+    -webkit-mask-image: url(/icons/arrow_forward.svg);
+    mask-image: url(/icons/arrow_forward.svg)
 }
 
 .newHomeButton.newHomeButton--icon.newHomeButton--iconClose:after {
     width: 16px;
     height: 16px;
-    -webkit-mask-image: url(/img/svg/close.svg);
-    mask-image: url(/img/svg/close.svg)
+    -webkit-mask-image: url(/icons/close.svg);
+    mask-image: url(/icons/close.svg)
 }
 
 .newHomeButton.newHomeButton--icon.newHomeButton--iconDownload:after {
     width: 24px;
     height: 24px;
     vertical-align: middle;
-    -webkit-mask-image: url(/img/svg/download.svg);
-    mask-image: url(/img/svg/download.svg)
+    -webkit-mask-image: url(/icons/download.svg);
+    mask-image: url(/icons/download.svg)
 }
 
 .newHomeButton:hover.newHomeButton--icon:after {
