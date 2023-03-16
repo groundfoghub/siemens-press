@@ -96,50 +96,68 @@ export default async function decorate(block) {
   const resp = await fetch(`${navPath}.plain.html`);
 
   if (resp.ok) {
+    const navWrapper = document.createElement('div');
+    navWrapper.classList.add('nav-wrapper', 'newHomeHeader__topBar');
+
+    // Build Logo
+    const logoContainer = document.createElement('div');
+    logoContainer.classList.add('newHomeHeader__logoContainer');
+
+    const logo = document.createElement('a');
+    logo.classList.add('newHomeHeader__logo', 'newHomeLink', 'newHomeHeader__logo');
+
+    const logoSiemens = document.createElement('div');
+    logoSiemens.classList.add('newHomeHeader__logoSiemens');
+
+    logo.append(logoSiemens);
+    logoContainer.append(logo);
+    navWrapper.append(logoContainer);
+
+    // Build search
+    const burgerMenuWrapper = document.createElement('div');
+    burgerMenuWrapper.classList.add('newHomeHeader__burgerMenuWrapper');
+    const burgerMenu = document.createElement('button');
+    burgerMenu.classList.add('newHomeHeader__burgerMenu');
+
+    burgerMenuWrapper.append(burgerMenu);
+    navWrapper.append(burgerMenuWrapper);
+
     const html = await resp.text();
 
     // decorate nav DOM
     const nav = document.createElement('nav');
-    nav.id = 'nav';
-    nav.innerHTML = html;
+    nav.classList.add('newHomeHeader__navigation');
+    nav.id = 'navigation';
 
-    const classes = ['brand', 'sections', 'tools'];
-    classes.forEach((c, i) => {
-      const section = nav.children[i];
-      if (section) section.classList.add(`nav-${c}`);
+    const navTemp = document.createElement('div');
+    navTemp.innerHTML = html;
+
+    const primaryNav = navTemp.querySelector('ul');
+
+    [...primaryNav.children].forEach((element) => {
+      element.querySelector('a').classList.add('newHomeHeader__firstNaviItem');
     });
 
-    const navSections = nav.querySelector('.nav-sections');
-    if (navSections) {
-      navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-        navSection.addEventListener('click', () => {
-          if (isDesktop.matches) {
-            const expanded = navSection.getAttribute('aria-expanded') === 'true';
-            toggleAllNavSections(navSections);
-            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          }
-        });
-      });
-    }
+    nav.append(primaryNav);
 
-    // hamburger for mobile
-    const hamburger = document.createElement('div');
-    hamburger.classList.add('nav-hamburger');
-    hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-        <span class="nav-hamburger-icon"></span>
-      </button>`;
-    hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-    nav.prepend(hamburger);
-    nav.setAttribute('aria-expanded', 'false');
-    // prevent mobile nav behavior on window resize
-    toggleMenu(nav, navSections, isDesktop.matches);
-    isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+    const secondaryNav = navTemp.querySelector('ul');
+
+    [...secondaryNav.children].forEach((element) => {
+      element.querySelector('a').classList.add('newHomeHeader__link', 'newHomeLink', 'newHomeHeader__link');
+    });
+
+    const links = document.createElement('nav');
+    links.classList.add('newHomeHeader__links');
+    links.append(secondaryNav);
+
+    navWrapper.append(nav);
+    navWrapper.append(links);
 
     decorateIcons(nav);
-    const navWrapper = document.createElement('div');
-    navWrapper.className = 'nav-wrapper';
-    navWrapper.append(nav);
+
     block.append(navWrapper);
   }
+
+  // const header = document.querySelector('header');
+  block.classList.add('newHomeHeader');
 }
