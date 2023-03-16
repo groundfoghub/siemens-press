@@ -239,9 +239,10 @@ main .section[data-section-status='initialized'] {
 }
 
 /* section metadata */
-main .section.highlight {
+
+/* main .section.highlight {
   background-color: var(--highlight-background-color);
-}
+} */
 
 /*
  .COM styles "above the fold"
@@ -321,8 +322,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/search-dark.svg);
-  mask-image: url(/img/svg/search-dark.svg)
+  -webkit-mask-image: url(/icons/search-dark.svg);
+  mask-image: url(/icons/search-dark.svg)
 }
 
 .newHomeHeaderSearch .newHomeHeaderSearch__clear {
@@ -350,8 +351,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/close.svg);
-  mask-image: url(/img/svg/close.svg)
+  -webkit-mask-image: url(/icons/close.svg);
+  mask-image: url(/icons/close.svg)
 }
 
 .newHomeHeaderSearch .newHomeHeaderSearch__input {
@@ -522,8 +523,8 @@ main .section.highlight {
   position: absolute;
   top: 6px;
   right: 5px;
-  -webkit-mask-image: url(/img/svg/arrow_right.svg);
-  mask-image: url(/img/svg/arrow_right.svg);
+  -webkit-mask-image: url(/icons/arrow_right.svg);
+  mask-image: url(/icons/arrow_right.svg);
   background-color: #707080;
   height: 100%;
   width: 6px;
@@ -602,8 +603,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/home.svg);
-  mask-image: url(/img/svg/home.svg);
+  -webkit-mask-image: url(/icons/home.svg);
+  mask-image: url(/icons/home.svg);
   background-color: var(--theme-color-14);
   position: absolute;
   top: 4px;
@@ -898,8 +899,8 @@ main .section.highlight {
   margin-right: 18px;
   width: 20px;
   height: 20px;
-  -webkit-mask-image: url(/img/svg/nh_globe.svg);
-  mask-image: url(/img/svg/nh_globe.svg)
+  -webkit-mask-image: url(/icons/nh_globe.svg);
+  mask-image: url(/icons/nh_globe.svg)
 }
 
 .newHomeHeader__regionSelector:hover,.newHomeHeader__regionSelector:active {
@@ -960,8 +961,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/close.svg);
-  mask-image: url(/img/svg/close.svg)
+  -webkit-mask-image: url(/icons/close.svg);
+  mask-image: url(/icons/close.svg)
 }
 
 .newHomeHeader__burgerMenuWrapper {
@@ -1010,8 +1011,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/menu-dark.svg);
-  mask-image: url(/img/svg/menu-dark.svg)
+  -webkit-mask-image: url(/icons/menu-dark.svg);
+  mask-image: url(/icons/menu-dark.svg)
 }
 
 .newHomeHeader__burgerMenu:focus-within:before {
@@ -1034,8 +1035,8 @@ main .section.highlight {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   background-color: var(--color-icon-header-footer);
-  -webkit-mask-image: url(/img/svg/logo-dark.svg);
-  mask-image: url(/img/svg/logo-dark.svg)
+  -webkit-mask-image: url(/icons/logo-dark.svg);
+  mask-image: url(/icons/logo-dark.svg)
 }
 
 .newHomeHeader__backBtn {
@@ -1053,7 +1054,7 @@ main .section.highlight {
 }
 
 .newHomeHeader__backBtn:before {
-  content: url(/img/svg/back_btn.svg);
+  content: url(/icons/back_btn.svg);
   position: relative;
   left: -10px
 }

@@ -1,3 +1,19 @@
+export const removeClasses = (element) => {
+  element.classList.forEach((className) => {
+    element.classList.remove(className);
+  });
+};
+
+export const getSectionMetadata = (cardsnumber, element = document) => {
+  const section = element.closest(`[data-${cardsnumber}]`);
+
+  if (section) {
+    return section.dataset[cardsnumber];
+  }
+
+  return undefined;
+};
+
 export const decorateAsFluidwebPage = (root) => {
   root.classList.add('fluidWebRoot');
 
@@ -24,5 +40,3 @@ export const decorateAsFluidwebPage = (root) => {
 
   root.append(id);
 };
-
-export default decorateAsFluidwebPage;
