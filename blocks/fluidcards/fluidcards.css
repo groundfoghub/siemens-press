@@ -533,8 +533,8 @@
     width: 24px;
     height: 24px;
     background-color: var(--theme-color-1);
-    -webkit-mask-image: url(/icons/arrow_forward-65206b8c.svg);
-    mask-image: url(/icons/arrow_forward-65206b8c.svg);
+    -webkit-mask-image: url(/icons/arrow_forward.svg);
+    mask-image: url(/icons/arrow_forward.svg);
     right: 0;
     top: 26px
 }
