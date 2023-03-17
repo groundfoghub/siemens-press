@@ -7,7 +7,7 @@ const classByCardsNumber = [
   'fourColumns',
 ];
 
-const getCardsNumber = (block, defaultNumber = 1) => {
+const getCardsNumberClass = (block, defaultNumber = 1) => {
   const cardsNumber = getSectionMetadata('cardsnumber', block);
 
   try {
@@ -21,7 +21,7 @@ export default function decorate(block) {
   block.classList.add(
     'newHomeCards',
     'newHomeComponent',
-    `newHomeCards--${getCardsNumber(block)}`,
+    `newHomeCards--${getCardsNumberClass(block)}`,
   );
 
   const list = document.createElement('div');
