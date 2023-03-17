@@ -35,12 +35,34 @@ function buildHeroBlock(main) {
 }
 
 /**
+ * Builds headline block and prepends to main in a new section.
+ * @param {Element} main The container element
+ */
+function buildHeadlineBlock(main) {
+  const h2s = main.querySelectorAll('h2');
+
+  h2s.forEach((h2) => {
+    // Check for optional h3 tag, right after h2
+    const h3 = h2.parentElement.querySelector('h2 + h3');
+
+    const placeholder = document.createElement('div');
+
+    // Add placeholder right after h2, as we are about to modify the h2
+    h2.parentNode.insertBefore(placeholder, h2.nextSibling);
+    const headlineBlock = buildBlock('headline', { elems: [h2, h3] });
+    placeholder.replaceWith(headlineBlock);
+    placeholder.remove();
+  });
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    buildHeadlineBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
