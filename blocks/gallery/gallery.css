@@ -309,7 +309,7 @@
     -webkit-margin-start: var(--swiper-centered-offset-before);
     margin-inline-start:var(--swiper-centered-offset-before)}
 
-.newHomeCarousel .swiper-centered.swiper-horizontal>.swiper-wrapper: before {
+.newHomeCarousel .swiper-centered.swiper-horizontal>.swiper-wrapper:before {
     height:100%;
     width: var(--swiper-centered-offset-after)
 }
@@ -318,7 +318,7 @@
     -webkit-margin-before: var(--swiper-centered-offset-before);
     margin-block-start:var(--swiper-centered-offset-before)}
 
-.newHomeCarousel .swiper-centered.swiper-vertical>.swiper-wrapper: before {
+.newHomeCarousel .swiper-centered.swiper-vertical>.swiper-wrapper:before {
     width:100%;
     height: var(--swiper-centered-offset-after)
 }

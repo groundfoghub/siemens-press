@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
 
 export default function decorate(block) {
