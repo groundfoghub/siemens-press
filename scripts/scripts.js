@@ -25,7 +25,7 @@ window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information 
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
-  const paragraph = main.querySelector('h1 + p');
+  const paragraph = main.querySelector('h1 + p, h1 + ul, h1 + ol');
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const section = document.createElement('div');
