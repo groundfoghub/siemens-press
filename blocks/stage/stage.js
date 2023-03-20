@@ -1,3 +1,5 @@
+// import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
+
 export default function decorate(block) {
   block.classList.add(
     'newHomeSection',
@@ -7,6 +9,8 @@ export default function decorate(block) {
     'option--sizeFullscreen',
   );
 
+  const tempFragment = document.createDocumentFragment();
+
   // Transform image
   const imageWrapper = document.createElement('div');
   imageWrapper.classList.add('newHomeStage__imageWrapper');
@@ -14,10 +18,10 @@ export default function decorate(block) {
   responsiveImage.classList.add('newHomeStage__responsiveImage', 'responsiveImage');
 
   const picture = block.querySelector('picture');
-
   responsiveImage.append(picture);
+  responsiveImage.querySelector('img').classList.add('newHomeStage__imageElement');
   imageWrapper.append(responsiveImage);
-  block.append(imageWrapper);
+  tempFragment.append(imageWrapper);
 
   // Transform heading
   const content = document.createElement('div');
@@ -29,7 +33,7 @@ export default function decorate(block) {
 
   headerContainer.append(heading);
   content.append(headerContainer);
-  block.append(content);
+  tempFragment.append(content);
 
   // Transform paragraph
   const description = document.createElement('div');
@@ -37,9 +41,13 @@ export default function decorate(block) {
   const text = document.createElement('div');
   text.classList.add('newHomeStage__text');
 
-  const paragraph = block.querySelector('p');
-
-  text.append(paragraph);
+  [...block.children].forEach((element) => {
+    text.append(element);
+  });
   description.append(text);
   content.append(description);
+
+  [...tempFragment.children].forEach((element) => {
+    block.append(element);
+  });
 }
