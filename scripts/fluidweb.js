@@ -4,11 +4,11 @@ export const removeClasses = (element) => {
   });
 };
 
-export const getSectionMetadata = (cardsnumber, element = document) => {
-  const section = element.closest(`[data-${cardsnumber}]`);
+export const getSectionMetadata = (property, element) => {
+  const section = element.closest('.section');
 
   if (section) {
-    return section.dataset[cardsnumber];
+    return section.dataset[property];
   }
 
   return undefined;
