@@ -1,33 +1,18 @@
-import { getSectionMetadata } from '../../scripts/fluidweb.js';
+import { getOptionClasses } from '../../scripts/fluidweb.js';
 
 const options = Object.freeze({
   left: 'option--mediaPositionLeft',
   right: 'option--mediaPositionRight',
 });
 
-const getMediaPositionClass = (block, defaultMediaPosition = 'right') => {
-  const mediaPositionClass = options[getSectionMetadata('mediaposition', block)];
-
-  return mediaPositionClass || options[defaultMediaPosition];
-};
-
 export default function decorate(block) {
   const picture = block.querySelector('picture');
   const hasMedia = picture !== null;
 
-  block.classList.add(
-    'newHomeSection',
-    'newHomeSection__layoutDefault',
-    'newHomeMediaRichText',
-    'newHomeComponent',
-    'fluidNavigator__item',
-    'newHomeScrollSection',
-  );
-
   // Text content
   const option = document.createElement('div');
   option.classList.add(
-    getMediaPositionClass(block),
+    getOptionClasses(block, options, ['right']),
     hasMedia ? undefined : 'newHomeMediaRichText--textOnly',
   );
   const textWrapper = document.createElement('div');
@@ -62,4 +47,13 @@ export default function decorate(block) {
     imageWrapper.append(galleryWrapper);
     option.append(imageWrapper);
   }
+
+  block.classList.add(
+    'newHomeSection',
+    'newHomeSection__layoutDefault',
+    'newHomeMediaRichText',
+    'newHomeComponent',
+    'fluidNavigator__item',
+    'newHomeScrollSection',
+  );
 }

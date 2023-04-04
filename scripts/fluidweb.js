@@ -14,6 +14,18 @@ export const getSectionMetadata = (property, element) => {
   return undefined;
 };
 
+export const getOptionClasses = (block, options, defaultOptions) => {
+  const classKeys = Object.keys(options);
+
+  let keysInBlockOptions = [...block.classList].filter((key) => classKeys.includes(key));
+
+  if (keysInBlockOptions.length === 0) {
+    keysInBlockOptions = defaultOptions;
+  }
+
+  return keysInBlockOptions.map((key) => options[key]);
+};
+
 export const decorateAsFluidwebPage = (root) => {
   root.classList.add('fluidWebRoot');
 
