@@ -9,8 +9,6 @@ export default function decorate(block) {
     'option--sizeFullscreen',
   );
 
-  const tempFragment = document.createDocumentFragment();
-
   // Transform image
   const imageWrapper = document.createElement('div');
   imageWrapper.classList.add('newHomeStage__imageWrapper');
@@ -21,7 +19,6 @@ export default function decorate(block) {
   responsiveImage.append(picture);
   responsiveImage.querySelector('img').classList.add('newHomeStage__imageElement');
   imageWrapper.append(responsiveImage);
-  tempFragment.append(imageWrapper);
 
   // Transform heading
   const content = document.createElement('div');
@@ -33,9 +30,8 @@ export default function decorate(block) {
 
   headerContainer.append(heading);
   content.append(headerContainer);
-  tempFragment.append(content);
 
-  // Transform paragraph
+  // Transform remaining markup
   const description = document.createElement('div');
   description.classList.add('newHomeStage__description');
   const text = document.createElement('div');
@@ -47,7 +43,6 @@ export default function decorate(block) {
   description.append(text);
   content.append(description);
 
-  [...tempFragment.children].forEach((element) => {
-    block.append(element);
-  });
+  block.append(imageWrapper);
+  block.append(content);
 }

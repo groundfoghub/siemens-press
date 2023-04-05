@@ -1,3 +1,4 @@
+/* Styles copied from siemens.com PROD */
 /* stylelint-disable */
 
 .newHomeStage {
@@ -221,7 +222,7 @@
     width: 4px
   }
   
-  .theme--light .newHomeStage__headerDecoration {
+  .themelight .newHomeStage__headerDecoration {
     background: linear-gradient(180deg,#00ffb9 0%,#00e6dc 100%)
   }
   
