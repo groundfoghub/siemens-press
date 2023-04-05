@@ -656,7 +656,7 @@ textarea,input {
   --theme-color-tag-disabled: #b3b3be
 }
 
-.theme--light {
+.themelight {
   --theme-color-0: #fff;
   --theme-color-0-transparent-16: rgba(255, 255, 255, .16);
   --theme-color-0-transparent-40: rgba(255, 255, 255, .4);
@@ -708,6 +708,10 @@ textarea,input {
   --theme-color-accordion-separator: #000028;
   --theme-color-scrollbar: #737389;
   --theme-color-tag-disabled: #4c4c68
+}
+
+.themelight > *:first-child > * {
+  padding-top: 80px;
 }
 
 .responsiveImage {

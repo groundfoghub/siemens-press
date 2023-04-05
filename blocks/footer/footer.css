@@ -271,7 +271,7 @@
   background: var(--theme-color-8)
 }
 
-.theme--light .newHomeFooter .newHomeFooter__contactUs .newHomeButton.newHomeButton--secondary {
+.themelight .newHomeFooter .newHomeFooter__contactUs .newHomeButton.newHomeButton--secondary {
   font-size: 1.125rem;
   font-family: Siemens Sans Black,arial,sans-serif;
   line-height: 1.5555555556;
@@ -282,7 +282,7 @@
   background: #0cc
 }
 
-.theme--light .newHomeFooter .newHomeFooter__contactUs .newHomeButton.newHomeButton--secondary:hover,.theme--light .newHomeFooter .newHomeFooter__contactUs .newHomeButton.newHomeButton--secondary:active {
+.themelight .newHomeFooter .newHomeFooter__contactUs .newHomeButton.newHomeButton--secondary:hover,.themelight .newHomeFooter .newHomeFooter__contactUs .newHomeButton.newHomeButton--secondary:active {
   background: var(--theme-color-8)
 }
 
@@ -477,7 +477,7 @@
   }
 }
 
-.theme--light .newHome__contactUsSticky.newHomeButton.newHomeButton--secondary {
+.themelight .newHome__contactUsSticky.newHomeButton.newHomeButton--secondary {
   font-size: 1.125rem;
   font-family: Siemens Sans Black,arial,sans-serif;
   line-height: 1.5555555556;
@@ -488,6 +488,6 @@
   background: #0cc
 }
 
-.theme--light .newHome__contactUsSticky.newHomeButton.newHomeButton--secondary:hover,.theme--light .newHome__contactUsSticky.newHomeButton.newHomeButton--secondary:active {
+.themelight .newHome__contactUsSticky.newHomeButton.newHomeButton--secondary:hover,.themelight .newHome__contactUsSticky.newHomeButton.newHomeButton--secondary:active {
   background: var(--theme-color-8)
 }
