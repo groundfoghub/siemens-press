@@ -1,5 +1,4 @@
 import { getOptionClasses, removeClasses } from '../../scripts/fluidweb.js';
-import { decorateIcons } from '../../scripts/lib-franklin.js';
 
 const options = Object.freeze({
   1: 'newHomeCards--oneColumn',
@@ -62,22 +61,25 @@ export default function decorate(block) {
       
       // add description to content
       const description = document.createElement('div');
-      description.classList.add('newHomeCard__description');
+      description.classList.add('newHomeCard__description', 'newtonLinklist', 'newHomeLinkList');
       const arrayContentParts = Array.from(contentWithoutPicture)
 
       // add links to description
       for (let link of arrayContentParts.slice(1)) {
+        const hasSVG = link.querySelector('svg')
         const aTag = link.querySelector('a');
         removeClasses(aTag);
+
+        if (hasSVG) {
+          aTag.classList.add('removePseudoElement')
+        }
+
         aTag.classList.add(
-          'newHomeCard__button',
-          'newHomeButton',
-          'newHomeButton--terciery',
-          'newHomeButton--link',
+          'newHomeLink--listDecorator',
           'newHomeLink',
           'newHomeLink--decorated',
-          'newHomeLink--internal',
-          // 'newHomeLink--iconRight',
+          'newHomeLink--iconLeft', 
+          'newHomeLink--internal'
         );
         link.append(aTag)
         description.append(link);
@@ -93,5 +95,4 @@ export default function decorate(block) {
       index++
     }
   });
-  // decorateIcons(block);
 }

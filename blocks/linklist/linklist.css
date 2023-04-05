@@ -7,9 +7,10 @@
   margin-right: calc(var(--grid-width) / var(--grid-columns-count) * 2)
 }
 
-.linklist .newHomeCards__list {
+.newHomeCards__list {
   list-style-type: decimal;
   display: grid;
+  row-gap: 80px
 }
 
 @media (min-width: 600px) {
@@ -33,10 +34,8 @@
   }
 }
 
-/* Margin added for Linklist row spacing */
 .newHomeCards__list>div {
-  list-style: none;
-  margin-bottom: 80px;
+  list-style: none
 }
 
 .newHomeCards--teaser .newHomeCards__list {
@@ -707,32 +706,13 @@
   font-weight: 400
 }
 
-/* add display: flex + align-items: center*/
-
 .newHomeCard__description a {
-  display: flex;
-  align-items: center;
+  color: #0cc;
   text-decoration: none;
   border-bottom: 1.5px solid;
   word-wrap: break-word;
   overflow: hidden
 }
-
-/* START change icon color specifically for NewhomeCards / Linklist */
-
-.newHomeCard__description .icon {
-  margin-right: 17px;
-}
-
-.newHomeCard__description .icon svg {
-  fill: var(--theme-color-button-tertiary-default);
-}
-
-.newHomeCard__description a:hover .icon svg {
-  fill: var(--theme-color-button-tertiary-hover);
-}
-
-/* END change icon color specifically for NewhomeCards / Linklist */
 
 .newHomeCard__description i {
   font-family: Siemens Sans Prof Italic,arial,sans-serif
@@ -890,4 +870,40 @@
   .newHomeCards.newHomeCards--threeColumns .newHomeCard .newHomeCard__media,.newHomeCards.newHomeCards--fourColumns .newHomeCard .newHomeCard__media {
       padding-bottom: 32px
   }
+}
+
+/* styles added for linklist in franklin */
+
+.newHomeCards__list > div {
+  margin-bottom: 80px;
+}
+
+.newHomeCard__description a {
+  display: flex;
+  align-items: center;
+}
+
+.newHomeCard__description .icon {
+  margin-right: 17px;
+}
+
+.newHomeCard__description .icon svg {
+  fill: var(--theme-color-button-tertiary-default);
+}
+
+.newHomeCard__description a:hover .icon svg {
+  fill: var(--theme-color-button-tertiary-hover);
+}
+
+.newHomeCard__description.newHomeLinkList p > a {
+  border-bottom: none
+}
+
+.newHomeCard__description.newHomeLinkList p > a.removePseudoElement:before {
+  content: '';
+  display: none !important;
+}
+
+.newHomeCard__description.newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before {
+  display: inline-block
 }

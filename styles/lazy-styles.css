@@ -757,6 +757,11 @@
     border-bottom-color: var(--theme-color-link-default)
 }
 
+.newHomeLink:visited {
+    color: var(--theme-color-link-visited);
+    border-bottom-color: var(--theme-color-link-visited)
+}
+
 .newHomeLink:focus {
     color: var(--theme-color-link-focus);
     border-bottom-color: var(--theme-color-link-focus)
@@ -765,11 +770,6 @@
 .newHomeLink:hover {
     color: var(--theme-color-link-hover);
     border-bottom-color: var(--theme-color-link-hover)
-}
-
-.newHomeLink:visited {
-    color: var(--theme-color-link-visited);
-    border-bottom-color: var(--theme-color-link-visited)
 }
 
 .newHomeLink:active {
@@ -1474,4 +1474,10 @@
         color: #000028;
         background: transparent
     }
+}
+
+/* Linklist component */
+
+.newHomeLink:visited svg {
+    fill: var(--theme-color-link-visited);
 }
