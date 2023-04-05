@@ -37,7 +37,7 @@ export default function decorate(block) {
       // all content
       const contentParts = cardWrapper.querySelectorAll('p');
 
-      const contentWithoutPicture = Array.from(contentParts).filter(content => content.firstElementChild?.tagName !== 'PICTURE')
+      const contentWithoutPicture = [...contentParts].filter(content => content.firstElementChild?.tagName !== 'PICTURE')
 
       // add outer div for content
       const cardContent = document.createElement('div');
@@ -60,7 +60,7 @@ export default function decorate(block) {
       // add description to content
       const description = document.createElement('div');
       description.classList.add('newHomeCard__description', 'newtonLinklist', 'newHomeLinkList');
-      const arrayContentParts = Array.from(contentWithoutPicture)
+      const arrayContentParts = [...contentWithoutPicture]
 
       // add links to description
       arrayContentParts.slice(1).forEach(link => {
