@@ -22,13 +22,11 @@ export default function decorate(block) {
 
     element.classList.add('newHomeCards__list');
 
-    for (let item of element.children) {
-      item.classList.add('newHomeCardWrapper')
-    }
+    [...element.children].forEach(item => item.classList.add('newHomeCardWrapper'))
 
     const cardWrappers = element.querySelectorAll('.newHomeCardWrapper')
 
-    for (let cardWrapper of cardWrappers) {
+    cardWrappers.forEach(cardWrapper => {
       // card wrapper
       cardWrapper.classList.add(`newHomeCardNumber${index}`);
 
@@ -52,12 +50,12 @@ export default function decorate(block) {
       cardContent.append(heading)
 
       // add media to card if exists
-      for (let content of contentParts) {
+      contentParts.forEach(content => {
         if (content.firstElementChild?.tagName === 'PICTURE') {
           content.classList.add('newHomeCard__media')
           card.append(content)
         }
-      }
+      })
       
       // add description to content
       const description = document.createElement('div');
@@ -65,7 +63,7 @@ export default function decorate(block) {
       const arrayContentParts = Array.from(contentWithoutPicture)
 
       // add links to description
-      for (let link of arrayContentParts.slice(1)) {
+      arrayContentParts.slice(1).forEach(link => {
         const hasSVG = link.querySelector('svg')
         const aTag = link.querySelector('a');
         removeClasses(aTag);
@@ -84,15 +82,13 @@ export default function decorate(block) {
         link.append(aTag)
         description.append(link);
         cardContent.append(description);
-      }
+      })
 
       // append content to card
       card.append(cardContent)
 
       // append card to card wrapper
       cardWrapper.append(card)
-      
-      index++
-    }
+    })
   });
 }
