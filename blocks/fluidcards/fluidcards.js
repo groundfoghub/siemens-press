@@ -1,27 +1,21 @@
-import { getSectionMetadata, removeClasses } from '../../scripts/fluidweb.js';
+import { getOptionClasses, removeClasses } from '../../scripts/fluidweb.js';
 
-const classByCardsNumber = [
-  'oneColumn',
-  'twoColumns',
-  'threeColumns',
-  'fourColumns',
-];
-
-const getCardsNumberClass = (block, defaultNumber = 1) => {
-  const cardsNumber = getSectionMetadata('cardsnumber', block);
-
-  try {
-    return classByCardsNumber[cardsNumber - 1];
-  } catch {
-    return defaultNumber;
-  }
-};
+const options = Object.freeze({
+  1: 'newHomeCards--oneColumn',
+  2: 'newHomeCards--twoColumns',
+  3: 'newHomeCards--threeColumns',
+  4: 'newHomeCards--fourColumns',
+  one: 'newHomeCards--oneColumn',
+  two: 'newHomeCards--twoColumns',
+  three: 'newHomeCards--threeColumns',
+  four: 'newHomeCards--fourColumns',
+});
 
 export default function decorate(block) {
   block.classList.add(
     'newHomeCards',
     'newHomeComponent',
-    `newHomeCards--${getCardsNumberClass(block)}`,
+    getOptionClasses(block, options, [1]),
   );
 
   const list = document.createElement('div');

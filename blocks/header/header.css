@@ -1,4 +1,6 @@
+/* Styles copied from siemens.com PROD */
 /* stylelint-disable */
+
 .newHomeHeader {
   width: 100%;
   position: relative;
@@ -538,41 +540,41 @@
   }
 }
 
-.theme--light .newHomeHeader__logoSiemens:before {
+.themelight .newHomeHeader__logoSiemens:before {
   --color-icon-header-footer: #099
 }
 
-.theme--light .newHomeHeader.newHomeHeader--open__logoSiemens:before {
+.themelight .newHomeHeader.newHomeHeader--open__logoSiemens:before {
   --color-icon-header-footer: #099
 }
 
-.theme--light .newHomeHeader.newHomeHeader--regionOpen__logoSiemens:before {
+.themelight .newHomeHeader.newHomeHeader--regionOpen__logoSiemens:before {
   --color-icon-header-footer: #099
 }
 
-.theme--light .app--componentBelowHeader .newHomeHeader {
+.themelight .app--componentBelowHeader .newHomeHeader {
   --color-icon-header-footer: #fff;
   --theme-color-10: #fff
 }
 
-.theme--light .app--componentBelowHeader .newHomeHeader__logoSiemens:before {
+.themelight .app--componentBelowHeader .newHomeHeader__logoSiemens:before {
   --color-icon-header-footer: #fff
 }
 
-.theme--light .app--componentBelowHeader .newHomeHeader.newHomeHeader--open {
+.themelight .app--componentBelowHeader .newHomeHeader.newHomeHeader--open {
   --color-icon-header-footer: #000028;
   --theme-color-10: #000028
 }
 
-.theme--light .app--componentBelowHeader .newHomeHeader.newHomeHeader--open .newHomeHeader__logoSiemens:before {
+.themelight .app--componentBelowHeader .newHomeHeader.newHomeHeader--open .newHomeHeader__logoSiemens:before {
   --color-icon-header-footer: #099
 }
 
-.theme--light .app--componentBelowHeader .newHomeHeader.newHomeHeader--regionOpen {
+.themelight .app--componentBelowHeader .newHomeHeader.newHomeHeader--regionOpen {
   --color-icon-header-footer: #000028;
   --theme-color-10: #000028
 }
 
-.theme--light .app--componentBelowHeader .newHomeHeader.newHomeHeader--regionOpen .newHomeHeader__logoSiemens:before {
+.themelight .app--componentBelowHeader .newHomeHeader.newHomeHeader--regionOpen .newHomeHeader__logoSiemens:before {
   --color-icon-header-footer: #099
 }
