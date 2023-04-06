@@ -895,15 +895,19 @@
   fill: var(--theme-color-button-tertiary-hover);
 }
 
-.newHomeCard__description.newHomeLinkList p > a {
+.newHomeCard__description p > a, .newHomeCard__description .newHomeLinkList li > a {
   border-bottom: none
 }
 
-.newHomeCard__description.newHomeLinkList p > a.removePseudoElement:before {
+.newHomeCard__description .newHomeLinkList p > a.removePseudoElement:before {
   content: '';
   display: none !important;
 }
 
-.newHomeCard__description.newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before {
+.newHomeCard__description .newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before {
   display: inline-block
+}
+
+.newHomeCard__description .newHomeLinkList .removePseudoElement.newHomeLink.newHomeLink--iconLeft:before {
+  display: none;
 }

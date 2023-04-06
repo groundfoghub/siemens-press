@@ -17,78 +17,74 @@ export default function decorate(block) {
     'newHomeComponent',
     getOptionClasses(block, options, [1]),
   );
+  const listWrapper = block.children[0]
+  listWrapper.classList.add('newHomeCards__list');
 
-  [...block.children].forEach((element, index) => {
+  [...listWrapper.children].forEach((cardWrapper, index) => {
+    // card wrapper
+    cardWrapper.classList.add('newHomeCardWrapper',`newHomeCardNumber${index}`);
 
-    element.classList.add('newHomeCards__list');
+    // card inside card wrapper
+    const card = document.createElement('div');
+    card.classList.add('newHomeCard', 'newHomeCard--oneColumn', 'newHomeComponent', 'newHomeScrollSection');
 
-    [...element.children].forEach(item => item.classList.add('newHomeCardWrapper'))
+    // if image add it to card
+    const cardItems = cardWrapper.children;
+    const picture = cardItems[0].querySelector('picture');
+    if (picture) {
+      const media = document.createElement('div');
+      media.classList.add('newHomeCard__media');
+      media.append(picture);
+      card.append(media);
+      cardItems[0].remove();
+    }
 
-    const cardWrappers = element.querySelectorAll('.newHomeCardWrapper')
+    // add outer div for content
+    const cardContent = document.createElement('div');
+    cardContent.classList.add('newHomeCard__content');
+    card.append(cardContent);
 
-    cardWrappers.forEach(cardWrapper => {
-      // card wrapper
-      cardWrapper.classList.add(`newHomeCardNumber${index}`);
+    // add card heading to content
+    const heading = cardItems[0];
+    heading.classList.add('newHomeCard__heading')
+    cardContent.append(heading);
 
-      // card inside card wrapper
-      const card = document.createElement('div');
-      card.classList.add('newHomeCard', 'newHomeCard--oneColumn', 'newHomeComponent', 'newHomeScrollSection');
+    // add description to content
+    const description = document.createElement('div');
+    description.classList.add('newHomeCard__description');
+    cardContent.append(description);
 
-      // all content
-      const contentParts = cardWrapper.querySelectorAll('p');
+    // add cardItems to description
+    [...cardItems].forEach(item => {
+      description.append(item);
 
-      const contentWithoutPicture = [...contentParts].filter(content => content.firstElementChild?.tagName !== 'PICTURE')
+      if (item.tagName === 'UL' || item.tagName === 'OL') {
+        item.classList.add('newtonLinklist', 'newHomeLinkList');
+      }
 
-      // add outer div for content
-      const cardContent = document.createElement('div');
-      cardContent.classList.add('newHomeCard__content')
-
-      // add card heading to content
-      const heading = document.createElement('h2')
-      heading.classList.add('newHomeCard__heading')
-      heading.append(contentWithoutPicture[0])
-      cardContent.append(heading)
-
-      // add media to card if exists
-      contentParts.forEach(content => {
-        if (content.firstElementChild?.tagName === 'PICTURE') {
-          content.classList.add('newHomeCard__media')
-          card.append(content)
-        }
+      // style list elements
+      item.querySelectorAll('ul, ol').forEach(list => {
+        list.classList.add('newtonLinklist', 'newHomeLinkList');
       })
-      
-      // add description to content
-      const description = document.createElement('div');
-      description.classList.add('newHomeCard__description', 'newtonLinklist', 'newHomeLinkList');
-      const arrayContentParts = [...contentWithoutPicture]
 
-      // add links to description
-      arrayContentParts.slice(1).forEach(link => {
-        const hasSVG = link.querySelector('svg')
-        const aTag = link.querySelector('a');
-        removeClasses(aTag);
-
-        if (hasSVG) {
-          aTag.classList.add('removePseudoElement')
-        }
-
-        aTag.classList.add(
+      // style link elements
+      item.querySelectorAll('a').forEach(link => {
+        removeClasses(link);
+        link.classList.add(
           'newHomeLink--listDecorator',
           'newHomeLink',
           'newHomeLink--decorated',
           'newHomeLink--iconLeft', 
           'newHomeLink--internal'
         );
-        link.append(aTag)
-        description.append(link);
-        cardContent.append(description);
+
+        if (link.querySelector('svg')) {
+          link.classList.add('removePseudoElement');
+        }
       })
-
-      // append content to card
-      card.append(cardContent)
-
-      // append card to card wrapper
-      cardWrapper.append(card)
     })
-  });
+
+    // append card to card wrapper
+    cardWrapper.append(card)
+  })
 }
