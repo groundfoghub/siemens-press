@@ -904,7 +904,8 @@
   display: none !important;
 }
 
-.newHomeCard__description .newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before {
+.newHomeCard__description .newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before,
+.newHomeCard__description .button-container .newHomeLink.newHomeLink--iconLeft:before {
   display: inline-block
 }
 
