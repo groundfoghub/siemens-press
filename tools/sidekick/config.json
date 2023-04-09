@@ -1,0 +1,24 @@
+{
+  "project": "Siemens Press goes Franklin",
+  "devMode": true,
+  "plugins": [
+    {
+      "id": "tools",
+      "title": "Tools",
+      "isContainer": true,
+      "environments": [
+        "edit",
+        "preview"
+      ]
+    },
+    {
+      "id": "assets",
+      "title": "Assets",
+      "containerId": "tools",
+      "environments": [
+        "edit"
+      ],
+      "url": "https://assets.new.siemens.com/content/siemens/assets/ui/en/search.html#/search/all/*"
+    }
+  ]
+}
