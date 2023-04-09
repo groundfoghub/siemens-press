@@ -1,6 +1,6 @@
 {
   "project": "Siemens Press goes Franklin",
-  "pushDown": true,
+  "devMode": true,
   "plugins": [
     {
       "id": "tools",
