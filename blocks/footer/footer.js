@@ -22,6 +22,7 @@ export default async function decorate(block) {
   block.innerHTML = footerTemplate;
   const footerLinksWrapper = block.querySelector('.newHomeFooter__footerLinksWrapper');
   const copyrightWrapper = block.querySelector('.newHomeFooter__copyrightWrapper');
+  const socialMedia = block.querySelector('.newHomeFooter__socialMedia')
 
   // fetch footer content
   const footerPath = cfg.footer || '/footer';
@@ -32,6 +33,7 @@ export default async function decorate(block) {
     const authorContent = document.createElement('div');
     authorContent.innerHTML = html;
     const linksParagraph = authorContent.querySelector('p');
+    const socialLinksParagraphs = authorContent.querySelectorAll('#icons-footer ~ p');
 
     [...linksParagraph.children].forEach((element) => {
       element.classList.add('newHomeFooter__footerLink', 'newHomeLink', 'newHomeFooter__footerLink');
@@ -62,6 +64,25 @@ export default async function decorate(block) {
     copyright.append(closingParagraph.textContent);
 
     copyrightWrapper.append(copyright);
+
+    socialLinksParagraphs.forEach((element => {
+      const icon = element.querySelector('.icon')
+      const li = document.createElement('li')
+      
+      if (element.hasChildNodes(icon)) {
+        const a = element.querySelector('a')
+
+        a.classList.add('newHomeFooter__socialMediaItem', 'newHomeLink', 'newHomeLink--decorated', 'newHomeLink--iconLeft')
+        a.target = '_blank';
+
+        li.append(a)
+      }
+      
+      socialMedia.append(li)
+    }))
+
+    
+
 
     decorateIcons(block);
   }
