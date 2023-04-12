@@ -17,12 +17,12 @@ export default function decorate(block) {
     'newHomeComponent',
     getOptionClasses(block, options, [1]),
   );
-  const listWrapper = block.children[0]
+  const listWrapper = block.children[0];
   listWrapper.classList.add('newHomeCards__list');
 
   [...listWrapper.children].forEach((cardWrapper, index) => {
     // card wrapper
-    cardWrapper.classList.add('newHomeCardWrapper',`newHomeCardNumber${index}`);
+    cardWrapper.classList.add('newHomeCardWrapper', `newHomeCardNumber${index}`);
 
     // card inside card wrapper
     const card = document.createElement('div');
@@ -46,7 +46,7 @@ export default function decorate(block) {
 
     // add card heading to content
     const heading = cardItems[0];
-    heading.classList.add('newHomeCard__heading')
+    heading.classList.add('newHomeCard__heading');
     cardContent.append(heading);
 
     // add description to content
@@ -55,7 +55,7 @@ export default function decorate(block) {
     cardContent.append(description);
 
     // add cardItems to description
-    [...cardItems].forEach(item => {
+    [...cardItems].forEach((item) => {
       description.append(item);
 
       if (item.tagName === 'UL' || item.tagName === 'OL') {
@@ -63,28 +63,28 @@ export default function decorate(block) {
       }
 
       // style list elements
-      item.querySelectorAll('ul, ol').forEach(list => {
+      item.querySelectorAll('ul, ol').forEach((list) => {
         list.classList.add('newtonLinklist', 'newHomeLinkList');
-      })
+      });
 
       // style link elements
-      item.querySelectorAll('a').forEach(link => {
+      item.querySelectorAll('a').forEach((link) => {
         removeClasses(link);
         link.classList.add(
           'newHomeLink--listDecorator',
           'newHomeLink',
           'newHomeLink--decorated',
-          'newHomeLink--iconLeft', 
-          'newHomeLink--internal'
+          'newHomeLink--iconLeft',
+          'newHomeLink--internal',
         );
 
         if (link.querySelector('svg')) {
           link.classList.add('removePseudoElement');
         }
-      })
-    })
+      });
+    });
 
     // append card to card wrapper
-    cardWrapper.append(card)
-  })
+    cardWrapper.append(card);
+  });
 }

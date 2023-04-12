@@ -867,8 +867,7 @@ sup,sub {
 .fluidcards-wrapper,
 .cards-container,
 .linklist-wrapper,
-.mediarichtext-wrapper,
-.columns-wrapper {
+.mediarichtext-wrapper {
   padding-bottom: 120px
 }
 
@@ -877,8 +876,7 @@ sup,sub {
   .fluidcards-wrapper,
   .cards-container,
   .linklist-wrapper,
-  .mediarichtext-wrapper,
-  .columns-wrapper {
+  .mediarichtext-wrapper {
       padding-bottom:160px
   }
 }
