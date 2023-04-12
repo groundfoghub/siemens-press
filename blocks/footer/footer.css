@@ -491,3 +491,23 @@
 .themelight .newHome__contactUsSticky.newHomeButton.newHomeButton--secondary:hover,.themelight .newHome__contactUsSticky.newHomeButton.newHomeButton--secondary:active {
   background: var(--theme-color-8)
 }
+
+/* styles added for footer in franklin */
+
+.newHomeFooter__socialMedia .newHomeFooter__socialMediaItem .icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 0;
+}
+
+.newHomeFooter__socialMedia .newHomeFooter__socialMediaItem .icon svg {
+  fill: var(--theme-color-1);
+}
+
+.newHomeFooter__socialMedia li:hover .newHomeFooter__socialMediaItem .icon svg {
+  fill: var(--theme-color-button-tertiary-hover);
+}
+
+.newHomeFooter__socialMedia a.newHomeFooter__socialMediaItem:before {
+  display: none;
+}
