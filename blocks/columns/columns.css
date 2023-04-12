@@ -31,3 +31,14 @@
     order: unset;
   }
 }
+
+/* styles added for columns in franklin */
+
+.columns {
+  color: var(--theme-color-1);
+}
+
+.columns-wrapper {
+  margin-left: calc(var(--grid-width) / var(--grid-columns-count) * 2);
+  margin-right: calc(var(--grid-width) / var(--grid-columns-count) * 2);
+}

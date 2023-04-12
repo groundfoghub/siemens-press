@@ -874,10 +874,6 @@
 
 /* styles added for linklist in franklin */
 
-.newHomeCards__list > div {
-  margin-bottom: 80px;
-}
-
 .newHomeCard__description a {
   display: flex;
   align-items: center;
