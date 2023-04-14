@@ -1,0 +1,172 @@
+/* stylelint-disable */
+
+/* Event results component */ 
+
+.eventresults-container {
+    margin-left: calc(var(--grid-width) / var(--grid-columns-count) * 2);
+    margin-right: calc(var(--grid-width) / var(--grid-columns-count) * 2);
+    padding: 32px 0;
+    color: #000028;
+}
+
+.eventresults-wrapper {
+  display: grid;
+  grid-template-columns: repeat(32,1fr);
+  grid-template-rows: auto 1fr;
+  padding: 56px 0;
+  margin-bottom: 40px;
+  background-color: #f3f3f0;
+}
+
+.eventresults.block {
+  grid-column: 3/32;
+}
+
+/* styles from siemens.com adjusted */
+
+ /* previously newHomeContentBannerElement__topContainer */
+.newHomeContentBannerElement__dateContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px
+}
+
+/* previously newHomeContentBannerElement__topLine */
+.newHomeContentBannerElement__dateContainer > div {
+  font-size: 1rem;
+  font-family: Siemens Sans Black,arial,sans-serif;
+  line-height: 1.375;
+  color: var(--theme-color-1);
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #000028;
+  text-transform: uppercase
+}
+
+/* siemens.com styles (only necessary ones) */
+
+.newHomeContentBannerElement__headline {
+  font-size: 1.75rem;
+  font-family: Siemens Sans Black,arial,sans-serif;
+  line-height: 1.3571428571;
+  color: var(--theme-color-1);
+  font-weight: 400;
+  letter-spacing: -.5px;
+  color: #000028;
+  margin-bottom: 16px
+}
+
+@media (min-width: 600px) {
+  .newHomeContentBannerElement__headline {
+      font-size:2rem;
+      font-family: Siemens Sans Black,arial,sans-serif;
+      line-height: 1.3125
+  }
+}
+
+@media (min-width: 1440px) {
+  .newHomeContentBannerElement__headline {
+      font-size:2.25rem;
+      font-family: Siemens Sans Black,arial,sans-serif;
+      line-height: 1.2777777778
+  }
+}
+
+.newHomeContentBannerElement__text {
+  font-size: 1.125rem;
+  font-family: Siemens Sans Roman,arial,sans-serif;
+  line-height: 1.5555555556;
+  color: var(--theme-color-1);
+  font-weight: 400;
+  color: #000028;
+  margin-bottom: 32px;
+  max-width: 850px
+}
+
+.newHomeContentBannerElement__text a {
+  color: #0cc;
+  text-decoration: none;
+  border-bottom: 1.5px solid;
+  word-wrap: break-word;
+  overflow: hidden
+}
+
+.newHomeContentBannerElement__text i {
+  font-family: Siemens Sans Prof Italic,arial,sans-serif
+}
+
+.newHomeContentBannerElement__text b,.newHomeContentBannerElement__text strong {
+  font-family: Siemens Sans Prof Bold,arial,sans-serif
+}
+
+.newHomeContentBannerElement__text p+p {
+  margin-top: 24px
+}
+
+.newHomeContentBannerElement__text ul {
+  list-style-type: disc
+}
+
+.newHomeContentBannerElement__text *+ul,.newHomeContentBannerElement__text *+ol {
+  margin-top: 40px
+}
+
+.newHomeContentBannerElement__text .newHomeLink.newHomeLink--internal:before {
+  display: none
+}
+
+.newHomeContentBannerElement__text ul,.newHomeContentBannerElement__text ol {
+  padding-left: 32px
+}
+
+.newHomeContentBannerElement__text ul+*,.newHomeContentBannerElement__text ol+* {
+  margin-top: 56px
+}
+
+@media (min-width: 600px) {
+  .newHomeContentBannerElement__text ul+*,.newHomeContentBannerElement__text ol+* {
+      margin-top:64px
+  }
+}
+
+@media (min-width: 1024px) {
+  .newHomeContentBannerElement__text ul+*,.newHomeContentBannerElement__text ol+* {
+      margin-top:56px
+  }
+}
+
+@media (min-width: 1440px) {
+  .newHomeContentBannerElement__text ul+*,.newHomeContentBannerElement__text ol+* {
+      margin-top:64px
+  }
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList,.newHomeContentBannerElement__text ol.newHomeLinkList {
+  padding-left: 0;
+  list-style-type: none
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList li,.newHomeContentBannerElement__text ol.newHomeLinkList li {
+  margin-bottom: 16px
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList li:last-child,.newHomeContentBannerElement__text ol.newHomeLinkList li:last-child {
+  margin-bottom: 0
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList li>a,.newHomeContentBannerElement__text ol.newHomeLinkList li>a {
+  border-bottom: none
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before,.newHomeContentBannerElement__text ol.newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before {
+  display: inline-block
+}
+
+.newHomeContentBannerElement__link-text {
+  color: #007993
+}
+
+.newHomeContentBannerElement .newHomeContentBannerElement__link {
+  padding: 9px 24px
+}

@@ -22,7 +22,7 @@ export default async function decorate(block) {
   block.innerHTML = footerTemplate;
   const footerLinksWrapper = block.querySelector('.newHomeFooter__footerLinksWrapper');
   const copyrightWrapper = block.querySelector('.newHomeFooter__copyrightWrapper');
-  const socialMedia = block.querySelector('.newHomeFooter__socialMedia')
+  const socialMedia = block.querySelector('.newHomeFooter__socialMedia');
 
   // fetch footer content
   const footerPath = cfg.footer || '/footer';
@@ -65,24 +65,21 @@ export default async function decorate(block) {
 
     copyrightWrapper.append(copyright);
 
-    socialLinksParagraphs.forEach((element => {
-      const icon = element.querySelector('.icon')
-      const li = document.createElement('li')
-      
-      if (element.hasChildNodes(icon)) {
-        const a = element.querySelector('a')
+    socialLinksParagraphs.forEach(((element) => {
+      const icon = element.querySelector('.icon');
+      const li = document.createElement('li');
 
-        a.classList.add('newHomeFooter__socialMediaItem', 'newHomeLink', 'newHomeLink--decorated', 'newHomeLink--iconLeft')
+      if (element.hasChildNodes(icon)) {
+        const a = element.querySelector('a');
+
+        a.classList.add('newHomeFooter__socialMediaItem', 'newHomeLink', 'newHomeLink--decorated', 'newHomeLink--iconLeft');
         a.target = '_blank';
 
-        li.append(a)
+        li.append(a);
       }
-      
-      socialMedia.append(li)
-    }))
 
-    
-
+      socialMedia.append(li);
+    }));
 
     decorateIcons(block);
   }

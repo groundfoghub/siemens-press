@@ -1481,3 +1481,17 @@
 .newHomeLink:visited svg {
     fill: var(--theme-color-link-visited);
 }
+
+/* eventresults component */
+
+.newHomeContentBannerElement .newHomeContentBannerElement__link:hover .newHomeContentBannerElement__link-text {
+    color: #005159;
+}
+
+.newHomeContentBannerElement .newHomeContentBannerElement__link:hover:after {
+    background-color: #005159;
+}
+
+.newHomeContentBannerElement .newHomeContentBannerElement__link:after {
+    background-color: #007993;
+}
