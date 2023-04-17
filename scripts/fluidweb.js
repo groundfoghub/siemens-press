@@ -52,3 +52,110 @@ export const decorateAsFluidwebPage = (root) => {
 
   root.append(id);
 };
+
+/**
+ * Finds nodes by text content.
+ * @param {Element} element Container element
+ * @param {RegExp} regExp Regular expression to filter text content by
+ * @returns {Array<Node>}
+ */
+function findNodesByRegExp(element, regExp) {
+  const filter = {
+    acceptNode(node) {
+      // Checks for nodes that are text nodes and match the given regular expression.
+      if (node.nodeType === document.TEXT_NODE && regExp.test(node.nodeValue)) {
+        return NodeFilter.FILTER_ACCEPT;
+      }
+      return NodeFilter.FILTER_REJECT;
+    },
+  };
+  const nodes = [];
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, filter);
+  while (walker.nextNode()) {
+    // Returns the element containing the node
+    nodes.push(walker.currentNode.parentNode);
+  }
+  return nodes;
+}
+
+export const imagePathTemplate = ({
+  uuid, width, quality = 'high', extension = 'webp',
+}) => `https://assets.new.siemens.com/siemens/assets/api/uuid:${uuid}/width:${width}/quality:${quality}/${uuid}.${extension}`;
+
+export const renditionsWidths = [
+  3840,
+  2732,
+  2224,
+  2048,
+  1920,
+  1266,
+  1125,
+  750,
+  640,
+  320,
+  100,
+];
+
+export const createAssetPicture = (uuid, alt = '', eager = false) => {
+  const picture = document.createElement('picture');
+  const source = document.createElement('source');
+  const renditions = {
+    webp: [],
+    jpg: [],
+  };
+
+  for (let i = 0; i < renditionsWidths.length - 1; i++) {
+    const width = renditionsWidths[i];
+    renditions.jpg.push(`${imagePathTemplate({
+      uuid,
+      width,
+      extension: 'jpg',
+    })} ${width}w`);
+    renditions.webp.push(`${imagePathTemplate({
+      uuid,
+      width,
+    })} ${width}w`);
+  }
+  source.setAttribute('srcset', [
+    ...renditions.webp,
+    ...renditions.jpg,
+  ].join(','));
+  picture.appendChild(source);
+
+  const img = document.createElement('img');
+  img.setAttribute('loading', eager ? 'eager' : 'lazy');
+  img.setAttribute('alt', alt);
+  picture.appendChild(img);
+  img.setAttribute('src', imagePathTemplate({
+    uuid,
+    width: renditionsWidths[renditionsWidths.length - 1],
+    extension: 'jpg',
+    quality: 'low',
+  }));
+
+  return picture;
+};
+
+/**
+ * Decorates media from Siemens Assets.
+ * @param {Element} element Container element
+ */
+export const decorateMedia = (element) => {
+  const MEDIA_REGEX = /image|video:([a-z0-9-]*)/gi;
+  findNodesByRegExp(element, MEDIA_REGEX).forEach((media) => {
+    const mediaMarker = media.textContent.split(':');
+
+    switch (mediaMarker[0].toLowerCase()) {
+      case 'image':
+        media.textContent = '';
+        media.append(createAssetPicture(mediaMarker[1]));
+        break;
+      case 'video':
+        break;
+
+      default:
+        // eslint-disable-next-line
+        console.log(`Unsupported media markup: ${media.textContent}`);
+    }
+  });
+};

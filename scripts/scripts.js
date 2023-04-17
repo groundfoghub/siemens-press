@@ -13,7 +13,7 @@ import {
   loadCSS,
 } from './lib-franklin.js';
 
-import { decorateAsFluidwebPage } from './fluidweb.js';
+import { decorateAsFluidwebPage, decorateMedia } from './fluidweb.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
@@ -75,6 +75,7 @@ function buildAutoBlocks(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  decorateMedia(main);
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
