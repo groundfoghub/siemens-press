@@ -1,0 +1,300 @@
+/* stylelint-disable */
+
+/* siemens.com styles only necessary ones */
+
+.newHomeContentBannerElement {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns-count),1fr);
+  padding-bottom: 56px;
+  background-color: #f3f3f0;
+  padding-top: 56px;
+  color: #000028;
+  max-width: 1440px
+}
+
+.newHomeContentBannerElement__componentWrapper {
+  grid-column: 3/36;
+  display: grid;
+  grid-template-columns: repeat(36,1fr);
+  grid-template-rows: auto 1fr
+}
+
+.newHomeContentBannerElement__topContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px
+}
+
+.newHomeContentBannerElement__topLine {
+  font-size: 1.125rem;
+  font-family: Siemens Sans Black,arial,sans-serif;
+  line-height: 1.2222222222;
+  color: var(--theme-color-1);
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #000028;
+  text-transform: uppercase
+}
+
+.newHomeContentBannerElement__headline {
+  font-size: 1.75rem;
+  font-family: Siemens Sans Black,arial,sans-serif;
+  line-height: 1.3571428571;
+  color: var(--theme-color-1);
+  font-weight: 400;
+  letter-spacing: -.5px;
+  color: #000028;
+  margin-bottom: 16px
+}
+
+@media (min-width: 600px) {
+  .newHomeContentBannerElement__headline {
+      font-size:2rem;
+      font-family: Siemens Sans Black,arial,sans-serif;
+      line-height: 1.3125
+  }
+}
+
+@media (min-width: 1440px) {
+  .newHomeContentBannerElement__headline {
+      font-size:2.25rem;
+      font-family: Siemens Sans Black,arial,sans-serif;
+      line-height: 1.2777777778
+  }
+}
+
+.newHomeContentBannerElement__text {
+  font-size: 1.125rem;
+  font-family: Siemens Sans Roman,arial,sans-serif;
+  line-height: 1.5555555556;
+  color: var(--theme-color-1);
+  font-weight: 400;
+  color: #000028;
+  margin-bottom: 32px;
+  max-width: 850px
+}
+
+.newHomeContentBannerElement__text a {
+  color: #0cc;
+  text-decoration: none;
+  border-bottom: 1.5px solid;
+  word-wrap: break-word;
+  overflow: hidden
+}
+
+.newHomeContentBannerElement__text i {
+  font-family: Siemens Sans Prof Italic,arial,sans-serif
+}
+
+.newHomeContentBannerElement__text b,.newHomeContentBannerElement__text strong {
+  font-family: Siemens Sans Prof Bold,arial,sans-serif
+}
+
+.newHomeContentBannerElement__text p+p {
+  margin-top: 24px
+}
+
+.newHomeContentBannerElement__text ul {
+  list-style-type: disc
+}
+
+.newHomeContentBannerElement__text *+ul,.newHomeContentBannerElement__text *+ol {
+  margin-top: 40px
+}
+
+.newHomeContentBannerElement__text .newHomeLink.newHomeLink--internal:before {
+  display: none
+}
+
+.newHomeContentBannerElement__text .contactSupport__base {
+  list-style-type: none;
+  padding-left: 0
+}
+
+.newHomeContentBannerElement__text .contactSupport__base li {
+  margin-bottom: 16px
+}
+
+.newHomeContentBannerElement__text .contactSupport__base .contactSupport__companyEntry b:first-child {
+  display: block;
+  margin-bottom: -10px
+}
+
+.newHomeContentBannerElement__text ul,.newHomeContentBannerElement__text ol {
+  padding-left: 20px
+}
+
+.newHomeContentBannerElement__text ul+*,.newHomeContentBannerElement__text ol+* {
+  margin-top: 56px
+}
+
+@media (min-width: 600px) {
+  .newHomeContentBannerElement__text ul+*,.newHomeContentBannerElement__text ol+* {
+      margin-top:64px
+  }
+}
+
+@media (min-width: 1024px) {
+  .newHomeContentBannerElement__text ul+*,.newHomeContentBannerElement__text ol+* {
+      margin-top:56px
+  }
+}
+
+@media (min-width: 1440px) {
+  .newHomeContentBannerElement__text ul+*,.newHomeContentBannerElement__text ol+* {
+      margin-top:64px
+  }
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList,.newHomeContentBannerElement__text ol.newHomeLinkList {
+  padding-left: 0;
+  list-style-type: none
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList li,.newHomeContentBannerElement__text ol.newHomeLinkList li {
+  margin-bottom: 16px
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList li:last-child,.newHomeContentBannerElement__text ol.newHomeLinkList li:last-child {
+  margin-bottom: 0
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList li>a,.newHomeContentBannerElement__text ol.newHomeLinkList li>a {
+  border-bottom: none
+}
+
+.newHomeContentBannerElement__text ul.newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before,.newHomeContentBannerElement__text ol.newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before {
+  display: inline-block
+}
+
+.newHomeContentBannerElement__btnsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between
+}
+
+@media (min-width: 600px) {
+  .newHomeContentBannerElement__btnsContainer {
+      flex-direction:row
+  }
+}
+
+.newHomeContentBannerElement__btnsContainer--single {
+  justify-content: flex-end
+}
+
+.newHomeContentBannerElement__link-text {
+  color: #007993
+}
+
+.newHomeContentBannerElement .newHomeContentBannerElement__link {
+  padding: 9px 24px
+}
+
+.newHomeContentBannerElement .newHomeContentBannerElement__link:after {
+  background-color: #007993
+}
+
+.newHomeContentBannerElement .newHomeContentBannerElement__link:hover:after {
+  background-color: #005159
+}
+
+.newHomeContentBannerElement .newHomeContentBannerElement__link:hover .newHomeContentBannerElement__link-text {
+  color: #005159
+}
+
+.newHomeContentBannerElement .newHomeContentBannerElement__button {
+  padding: 9px 24px;
+  font-size: 18px;
+  order: 2;
+  margin-top: 32px;
+  width: 100%;
+  max-width: 280px
+}
+
+@media (min-width: 600px) {
+  .newHomeContentBannerElement .newHomeContentBannerElement__button {
+      margin-top:0;
+      order: 0;
+      width: auto
+  }
+}
+
+.newHomeContentBannerElement .newHomeContentBannerElement__button:after {
+  display: none
+}
+
+.newHomeContentBannerElement__imgWrapper {
+  grid-column: 1/36
+}
+
+@media (min-width: 1024px) {
+  .newHomeContentBannerElement__imgWrapper {
+      grid-column-end:13
+  }
+}
+
+@media (min-width: 1440px) {
+  .newHomeContentBannerElement__imgWrapper {
+      grid-column-end:10
+  }
+}
+
+.newHomeContentBannerElement__contentWrapper {
+  grid-column: 1/36
+}
+
+.newHomeContentBannerElement__contentWrapper--hasImg {
+  grid-column-start: 1;
+  margin-top: 24px
+}
+
+@media (min-width: 1024px) {
+  .newHomeContentBannerElement__contentWrapper--hasImg {
+      margin-top:0;
+      grid-column-start: 15
+  }
+}
+
+@media (min-width: 1440px) {
+  .newHomeContentBannerElement__contentWrapper--hasImg {
+      grid-column-start:12
+  }
+}
+
+.newHomeContentBanner {
+  overflow: hidden;
+  width: 100%;
+  position: relative
+}
+
+.newHomeContentBanner__componentWrapper {
+  position: relative;
+  background-color: #f3f3f0
+}
+
+.newHomeContentBanner .newHomeContentBanner__container li+li:not(.newHomeTopic__topicItem) {
+  margin-left: calc(var(--grid-width) / var(--grid-columns-count))
+}
+
+@media (min-width: 1024px) {
+  .newHomeContentBanner .newHomeContentBanner__container li+li:not(.newHomeTopic__topicItem) {
+      margin-left:calc(var(--grid-width) / var(--grid-columns-count) * 2)
+  }
+}
+
+.newHomeContentBanner .newHomeContentBanner__container li:first-child:not(.newHomeTopic__topicItem) {
+  margin-left: calc(var(--grid-width) / var(--grid-columns-count) * 2)
+}
+
+.newHomeContentBanner .newHomeContentBanner__container li:last-child:not(.newHomeTopic__topicItem) {
+  margin-right: calc(var(--grid-width) / var(--grid-columns-count) * 2)
+}
+
+@media (any-hover: hover) {
+  .newHomeContentBanner__containerWrapper {
+      transition:transform .2s ease
+  }
+}
