@@ -31,3 +31,27 @@
     order: unset;
   }
 }
+
+/* styles added for columns in franklin */
+
+.columns-wrapper {
+  margin-left: calc(var(--grid-width) / var(--grid-columns-count) * 2);
+  margin-right: calc(var(--grid-width) / var(--grid-columns-count) * 2);
+  margin-bottom: 120px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 160px;
+  }
+}
+
+.section.themelight.columns-container .columns-wrapper {
+  background-color: var(--theme-color-2);
+}
+
+.columns {
+  color: var(--theme-color-1);
+}
+
+.columns .headline {
+  padding-bottom: 24px;
+}

@@ -50,7 +50,6 @@ export default function decorate(block) {
 
   block.classList.add(
     'newHomeSection',
-    'newHomeSection__layoutDefault',
     'newHomeMediaRichText',
     'newHomeComponent',
     'fluidNavigator__item',

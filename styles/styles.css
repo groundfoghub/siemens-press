@@ -711,7 +711,7 @@ textarea,input {
 }
 
 .themelight > *:first-child > * {
-  padding-top: 80px;
+  padding: 80px;
 }
 
 .responsiveImage {
@@ -863,12 +863,20 @@ sup,sub {
   }
 }
 
-.newHomeSection__layoutDefault {
+.newHomeSection__layoutDefault,
+.fluidcards-wrapper,
+.cards-container,
+.linklist-wrapper,
+.mediarichtext-wrapper {
   padding-bottom: 120px
 }
 
 @media (min-width: 1024px) {
-  .newHomeSection__layoutDefault {
+  .newHomeSection__layoutDefault,
+  .fluidcards-wrapper,
+  .cards-container,
+  .linklist-wrapper,
+  .mediarichtext-wrapper {
       padding-bottom:160px
   }
 }
