@@ -104,7 +104,7 @@ export const createAssetPicture = (uuid, alt = '', eager = false) => {
     jpg: [],
   };
 
-  for (let i = 0; i < renditionsWidths.length - 1; i++) {
+  for (let i = 0; i < renditionsWidths.length - 1; i += 1) {
     const width = renditionsWidths[i];
     renditions.jpg.push(`${imagePathTemplate({
       uuid,
