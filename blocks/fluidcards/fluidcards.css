@@ -667,14 +667,6 @@
     }
 }
 
-@media (min-width: 1440px) {
-    .newHomeCard__heading {
-        font-size:1.5rem;
-        font-family: Siemens Sans Black,arial,sans-serif;
-        line-height: 1.3333333333
-    }
-}
-
 .newHomeCard__topic+.newHomeCard__heading {
     font-size: 1.625rem;
     font-family: Siemens Sans Black,arial,sans-serif;
