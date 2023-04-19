@@ -1,4 +1,4 @@
-import { getOptionClasses } from '../../scripts/fluidweb.js';
+import { getOptionClasses } from '../../scripts/utils.js';
 
 const options = Object.freeze({
   left: 'option--mediaPositionLeft',

@@ -867,7 +867,8 @@ sup,sub {
 .fluidcards-wrapper,
 .cards-container,
 .linklist-wrapper,
-.mediarichtext-wrapper {
+.mediarichtext-wrapper,
+.bannerevent-wrapper {
   padding-bottom: 120px
 }
 
@@ -876,7 +877,8 @@ sup,sub {
   .fluidcards-wrapper,
   .cards-container,
   .linklist-wrapper,
-  .mediarichtext-wrapper {
+  .mediarichtext-wrapper,
+  .bannerevent-wrapper {
       padding-bottom:160px
   }
 }
