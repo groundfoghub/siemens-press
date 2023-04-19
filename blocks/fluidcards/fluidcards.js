@@ -48,7 +48,7 @@ export default function decorate(block) {
 
     const contentToAdd = [...element.firstElementChild.children];
     contentToAdd.forEach((node, idx) => {
-      const headingOptions = node.tagName === 'H1' || node.tagName === 'H2' || node.tagName === 'H3';
+      const headingOptions = /^h\d$/i.test(node.tagName);
       const headingWithClass = node.classList.contains('headline');
 
       const isEventLocationDate = idx === 0 && !headingOptions && !headingWithClass;
@@ -78,13 +78,11 @@ export default function decorate(block) {
 
         element.append(event);
         node.remove();
-      }
-      else if (isHeading) {
+      } else if (isHeading) {
         const headingElement = headingOptions ? node : node.querySelector('h2');
         headingElement.classList.add('newHomeCard__heading');
         contentWithTags.append(headingElement);
-      }
-      else if (isLink) {
+      } else if (isLink) {
         const link = node.querySelector('a');
         if (link) {
           removeClasses(link);
@@ -107,8 +105,7 @@ export default function decorate(block) {
         }
         buttonContainer.append(link);
         node.remove();
-      } 
-      else if (isDescription) {
+      } else if (isDescription) {
         description.append(node);
       }
     });
