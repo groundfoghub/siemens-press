@@ -1,31 +1,3 @@
-export const removeClasses = (element) => {
-  element.classList.forEach((className) => {
-    element.classList.remove(className);
-  });
-};
-
-export const getSectionMetadata = (property, element) => {
-  const section = element.closest('.section');
-
-  if (section) {
-    return section.dataset[property];
-  }
-
-  return undefined;
-};
-
-export const getOptionClasses = (block, options, defaultOptions) => {
-  const classKeys = Object.keys(options);
-
-  let keysInBlockOptions = [...block.classList].filter((key) => classKeys.includes(key));
-
-  if (keysInBlockOptions.length === 0) {
-    keysInBlockOptions = defaultOptions;
-  }
-
-  return keysInBlockOptions.map((key) => options[key]);
-};
-
 export const decorateAsFluidwebPage = (root) => {
   root.classList.add('fluidWebRoot');
 
@@ -52,3 +24,5 @@ export const decorateAsFluidwebPage = (root) => {
 
   root.append(id);
 };
+
+export default decorateAsFluidwebPage;
