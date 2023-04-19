@@ -43,20 +43,20 @@ export default function decorate(block) {
   contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper');
 
   // Picture can be located wherever in the block
-  const imgWrapper = block.querySelector('PICTURE');
+  const picture = block.querySelector('PICTURE');
   const [topContainer, headline, text] = block.children;
 
-  if (imgWrapper) {
+  if (picture) {
     contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper--hasImg');
-    imgWrapper.classList.add('newHomeContentBannerElement__imgWrapper');
-    imgWrapper.firstElementChild.classList.add(
+    picture.classList.add('newHomeContentBannerElement__imgWrapper');
+    picture.firstElementChild.classList.add(
       'responsiveImage--hasAspectRatio',
       'responsiveImage--supportsAspectRatio',
       'responsiveImage',
       'lazyloaded',
     );
 
-    componentWrapper.append(imgWrapper);
+    componentWrapper.append(picture);
   }
 
   if (topContainer) {
