@@ -42,16 +42,11 @@ export default function decorate(block) {
   const contentWrapper = document.createElement('div');
   contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper');
 
-  let topContainer;
-  let headline;
-  let text;
+  // Picture can be located wherever in the block
+  const imgWrapper = block.querySelector('PICTURE');
+  const [topContainer, headline, text] = block.children;
 
-  const hasImg = block.children[0]?.firstElementChild?.firstElementChild?.tagName === 'PICTURE';
-
-  if (hasImg) {
-    let imgWrapper;
-    [imgWrapper, topContainer, headline, text] = block.children;
-
+  if (imgWrapper) {
     contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper--hasImg');
     imgWrapper.classList.add('newHomeContentBannerElement__imgWrapper');
     imgWrapper.firstElementChild.classList.add(
@@ -62,8 +57,6 @@ export default function decorate(block) {
     );
 
     componentWrapper.append(imgWrapper);
-  } else {
-    [topContainer, headline, text] = block.children;
   }
 
   if (topContainer) {
