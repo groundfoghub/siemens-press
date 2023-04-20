@@ -872,3 +872,25 @@
         padding-bottom: 32px
     }
 }
+
+/* styles franklin different from siemens.com*/
+.newHomeCard__event {
+    padding-bottom: 32px;
+}
+
+.newHomeCard__location {
+    font-size: .75rem;
+    font-family: Siemens Sans Roman,arial,sans-serif;
+    line-height: 1.6666666667;
+    color: var(--theme-color-1);
+    font-weight: 400
+}
+
+.newHomeCard__date {
+    font-size: .875rem;
+    font-family: Siemens Sans Roman,arial,sans-serif;
+    line-height: 1.7142857143;
+    letter-spacing: .2px;
+    color: var(--theme-color-1);
+    font-weight: 700
+}
