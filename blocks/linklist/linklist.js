@@ -1,4 +1,4 @@
-import { getOptionClasses, removeClasses } from '../../scripts/fluidweb.js';
+import { getOptionClasses, removeClasses } from '../../scripts/utils.js';
 
 const options = Object.freeze({
   1: 'newHomeCards--oneColumn',
