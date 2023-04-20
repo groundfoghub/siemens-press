@@ -1,4 +1,4 @@
-import { getHeadingOptions } from '../../scripts/utils.js';
+import { isHeading } from '../../scripts/utils.js';
 
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
@@ -8,7 +8,7 @@ export default function decorate(block) {
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
       col.classList.add('columns-container');
-      
+
       const pic = col.querySelector('picture');
       if (pic) {
         const picWrapper = pic.closest('div');
@@ -35,7 +35,7 @@ export default function decorate(block) {
         || col.querySelector('h3');
 
         headlineElement.classList.add('columns-heading');
-      } else if (firstElementInCol && getHeadingOptions(firstElementInCol)) {
+      } else if (firstElementInCol && isHeading(firstElementInCol)) {
         firstElementInCol.classList.add('columns-heading');
       }
       const colChildren = [...col.children];
