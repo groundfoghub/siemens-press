@@ -1,5 +1,6 @@
 {
   "project": "Siemens Press goes Franklin",
+  "host": "press.siemens.groundfog.cloud",
   "devMode": true,
   "plugins": [
     {
