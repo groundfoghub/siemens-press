@@ -1,4 +1,5 @@
 import { getHeadingOptions } from '../../scripts/utils.js';
+
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
@@ -17,8 +18,8 @@ export default function decorate(block) {
 
       // follow class naming pattern kebab style for franklin boilerplate components
 
-      const headingIsPTag = col.children[!pic? 0 : 1]?.tagName === 'P';
-      const firstElementInCol = !pic ? col.children[0] : col.children[1]
+      const headingIsPTag = col.children[!pic ? 0 : 1]?.tagName === 'P';
+      const firstElementInCol = !pic ? col.children[0] : col.children[1];
 
       if (headingIsPTag) {
         if (pic) {
@@ -46,7 +47,10 @@ export default function decorate(block) {
       // heading (h1 - h5) or p
       // text body (paragraph)
 
-      // therefore if we want to get the description it will be the element(s) after the first (which is a heading) or if there is an image it will be the second after (so we can "remove" the heading element from the array and add the description class)
+      // therefore if we want to get the description it will be the element(s)
+      // after the first element (which is a heading)
+      // or if there is an image it will be the second after
+      // (so we can "remove" the heading element from the array and add the description class)
 
       colChildren.shift();
 
