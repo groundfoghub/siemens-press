@@ -1,55 +1,9 @@
-export default function decorate(block) {
-  block.classList.add('newHomeContentBannerElement', 'newHomeComponent', 'newHomeScrollSection');
-
-  const componentWrapper = document.createElement('div');
-  componentWrapper.classList.add('newHomeContentBannerElement__componentWrapper');
-
-  const contentWrapper = document.createElement('div');
-  contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper');
-
-  let topContainer;
-  let headline;
-  let text;
-
-  const hasImg = block.children[0]?.firstElementChild?.firstElementChild?.tagName === 'PICTURE';
-
-  if (hasImg) {
-    let imgWrapper;
-    [imgWrapper, topContainer, headline, text] = block.children;
-
-    contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper--hasImg');
-    imgWrapper.classList.add('newHomeContentBannerElement__imgWrapper');
-    imgWrapper.firstElementChild.classList.add(
-      'responsiveImage--hasAspectRatio',
-      'responsiveImage--supportsAspectRatio',
-      'responsiveImage',
-      'lazyloaded',
-    );
-
-    componentWrapper.append(imgWrapper);
-  } else {
-    [topContainer, headline, text] = block.children;
-  }
-
-  if (topContainer) {
-    topContainer.classList.add('newHomeContentBannerElement__topContainer');
-    topContainer.firstElementChild?.classList.add('newHomeContentBannerElement__topLine');
-    contentWrapper.append(topContainer);
-  }
-
-  if (headline) {
-    headline.classList.add('newHomeContentBannerElement__headline');
-    contentWrapper.append(headline);
-  }
-
-  if (text) {
-    text.classList.add('newHomeContentBannerElement__text');
-    contentWrapper.append(text);
-  }
-
-  // Button is always created
+const createSaveEventButton = () => {
   const btnContainer = document.createElement('div');
-  btnContainer.classList.add('newHomeContentBannerElement__btnsContainer', 'newHomeContentBannerElement__btnsContainer--single');
+  btnContainer.classList.add(
+    'newHomeContentBannerElement__btnsContainer',
+    'newHomeContentBannerElement__btnsContainer--single',
+  );
 
   const saveDateButton = document.createElement('a');
   saveDateButton.classList.add(
@@ -72,7 +26,57 @@ export default function decorate(block) {
   saveDateButton.append(saveDateButtonText);
   btnContainer.append(saveDateButton);
 
-  contentWrapper.append(btnContainer);
+  return btnContainer;
+};
+
+export default function decorate(block) {
+  block.classList.add(
+    'newHomeContentBannerElement',
+    'newHomeComponent',
+    'newHomeScrollSection',
+  );
+
+  const componentWrapper = document.createElement('div');
+  componentWrapper.classList.add('newHomeContentBannerElement__componentWrapper');
+
+  const contentWrapper = document.createElement('div');
+  contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper');
+
+  // Picture can be located wherever in the block
+  const picture = block.querySelector('PICTURE');
+  const [topContainer, headline, text] = block.children;
+
+  if (picture) {
+    contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper--hasImg');
+    picture.classList.add('newHomeContentBannerElement__imgWrapper');
+    picture.firstElementChild.classList.add(
+      'responsiveImage--hasAspectRatio',
+      'responsiveImage--supportsAspectRatio',
+      'responsiveImage',
+      'lazyloaded',
+    );
+
+    componentWrapper.append(picture);
+  }
+
+  if (topContainer) {
+    topContainer.classList.add('newHomeContentBannerElement__topContainer');
+    topContainer.firstElementChild?.classList.add('newHomeContentBannerElement__topLine');
+    contentWrapper.append(topContainer);
+  }
+
+  if (headline) {
+    headline.classList.add('newHomeContentBannerElement__headline');
+    contentWrapper.append(headline);
+  }
+
+  if (text) {
+    text.classList.add('newHomeContentBannerElement__text');
+    contentWrapper.append(text);
+  }
+
+  // Button is always created
+  contentWrapper.append(createSaveEventButton());
   componentWrapper.append(contentWrapper);
 
   block.prepend(componentWrapper);
