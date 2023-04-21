@@ -193,11 +193,3 @@
 .columns-description .newtonBulletList li:last-child {
   margin-bottom: 0
 }
-
-.themelight > *:first-child > * {
-  padding: 0;
-}
-
-.themelight > *:first-child {
-  padding: 80px;
-}
