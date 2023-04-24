@@ -16,7 +16,7 @@ export default function decorate(block) {
   if (hasImg) {
     let imgWrapper;
     [imgWrapper, topContainer, headline, text] = block.children;
-    
+
     contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper--hasImg');
     imgWrapper.classList.add('newHomeContentBannerElement__imgWrapper');
     imgWrapper.firstElementChild.classList.add(
