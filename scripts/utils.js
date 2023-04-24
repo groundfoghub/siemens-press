@@ -40,3 +40,5 @@ export const findNodesByRegExp = (element, regExp) => {
   }
   return nodes;
 };
+
+export const isHeading = (node) => /^h\d$/i.test(node.tagName);
