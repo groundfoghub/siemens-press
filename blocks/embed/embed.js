@@ -4,6 +4,8 @@
  * https://www.hlx.live/developer/block-collection/embed
  */
 
+import { getSectionMetadata } from '../../scripts/utils.js';
+
 const loadScript = (url, callback, type) => {
   const head = document.querySelector('head');
   const script = document.createElement('script');
@@ -22,10 +24,10 @@ const getDefaultEmbed = (url) => `<div style="left: 0; width: 100%; height: 0; p
       </iframe>
     </div>`;
 
-const embedBrightcove = (url, autoplay) => {
+const embedBrightcove = (url, autoplay, block) => {
   const videoId = url.pathname;
-  const BRIGHTCOVE_ACCOUNT = '1813624294001';
-  const BRIGHTCOVE_PLAYER = 'VMi7Ptd8P';
+  const BRIGHTCOVE_ACCOUNT = getSectionMetadata(block, 'brightcoveaccount');
+  const BRIGHTCOVE_PLAYER = getSectionMetadata(block, 'brightcoveplayer');
   const embedHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
               <iframe src="https://players.brightcove.net/${BRIGHTCOVE_ACCOUNT}/${BRIGHTCOVE_PLAYER}_default/index.html?videoId=${videoId}"
                 allowfullscreen="true"
@@ -100,7 +102,7 @@ const loadEmbed = (block, link, autoplay) => {
     url = link;
   }
   if (config) {
-    block.innerHTML = config.embed(url, autoplay);
+    block.innerHTML = config.embed(url, autoplay, block);
     block.classList = `block embed embed-${config.match[0]}`;
   } else {
     block.innerHTML = getDefaultEmbed(url);

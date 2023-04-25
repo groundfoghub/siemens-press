@@ -4,6 +4,21 @@ export const removeClasses = (element) => {
   });
 };
 
+/**
+ * @param {Element} element
+ * @param {string} property
+ * @returns {string | undefined}
+ */
+export const getSectionMetadata = (element, property) => {
+  const section = element.closest('.section');
+
+  if (section) {
+    return section.dataset[property.toLowerCase()];
+  }
+
+  return undefined;
+};
+
 export const getOptionClasses = (block, options, defaultOptions) => {
   const classKeys = Object.keys(options);
 
