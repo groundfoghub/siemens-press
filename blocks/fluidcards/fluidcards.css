@@ -667,14 +667,6 @@
     }
 }
 
-@media (min-width: 1440px) {
-    .newHomeCard__heading {
-        font-size:1.5rem;
-        font-family: Siemens Sans Black,arial,sans-serif;
-        line-height: 1.3333333333
-    }
-}
-
 .newHomeCard__topic+.newHomeCard__heading {
     font-size: 1.625rem;
     font-family: Siemens Sans Black,arial,sans-serif;
@@ -871,4 +863,26 @@
     .newHomeCards.newHomeCards--threeColumns .newHomeCard .newHomeCard__media,.newHomeCards.newHomeCards--fourColumns .newHomeCard .newHomeCard__media {
         padding-bottom: 32px
     }
+}
+
+/* styles franklin different from siemens.com*/
+.newHomeCard__event {
+    padding-bottom: 32px;
+}
+
+.newHomeCard__location {
+    font-size: .75rem;
+    font-family: Siemens Sans Roman,arial,sans-serif;
+    line-height: 1.6666666667;
+    color: var(--theme-color-1);
+    font-weight: 400
+}
+
+.newHomeCard__date {
+    font-size: .875rem;
+    font-family: Siemens Sans Roman,arial,sans-serif;
+    line-height: 1.7142857143;
+    letter-spacing: .2px;
+    color: var(--theme-color-1);
+    font-weight: 700
 }

@@ -15,3 +15,5 @@ export const getOptionClasses = (block, options, defaultOptions) => {
 
   return keysInBlockOptions.map((key) => options[key]);
 };
+
+export const isHeading = (node) => /^h\d$/i.test(node.tagName);

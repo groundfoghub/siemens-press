@@ -5,6 +5,7 @@
 
 .columns img {
   width: 100%;
+  padding-bottom: 32px;
 }
 
 .columns > div > div {
@@ -21,7 +22,6 @@
 
 @media (min-width: 900px) {
   .columns > div {
-    align-items: center;
     flex-direction: unset;
     gap: 32px;
   }
@@ -29,8 +29,11 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+    min-width: 0;
   }
 }
+
+/* stylelint-disable */
 
 /* styles added for columns in franklin */
 
@@ -52,6 +55,140 @@
   color: var(--theme-color-1);
 }
 
-.columns .headline {
-  padding-bottom: 24px;
+/* class name adjusted siemens.com style */
+
+.columns-container {
+  padding-bottom: 20px;
+}
+
+@media (min-width: 900px) {
+  .columns-container {
+    padding-bottom: 0;
+  }
+}
+
+.columns-heading {
+  font-size: 1.375rem;
+  font-family: Siemens Sans Black,arial,sans-serif;
+  line-height: 1.3636363636;
+  color: var(--theme-color-1);
+  font-weight: 400;
+  padding-bottom: 24px
+}
+
+@media (min-width: 600px) {
+  .columns-heading {
+      font-size:1.5rem;
+      font-family: Siemens Sans Black,arial,sans-serif;
+      line-height: 1.3333333333
+  }
+}
+
+.columns-description {
+  font-size: 1.125rem;
+  font-family: Siemens Sans Roman,arial,sans-serif;
+  line-height: 1.5555555556;
+  color: var(--theme-color-1);
+  font-weight: 400
+}
+
+.columns-description a {
+  color: #0cc;
+  text-decoration: none;
+  border-bottom: 1.5px solid;
+  word-wrap: break-word;
+  overflow: hidden
+}
+
+.columns-description i {
+  font-family: Siemens Sans Prof Italic,arial,sans-serif
+}
+
+.columns-description b,.columns-description strong {
+  font-family: Siemens Sans Prof Bold,arial,sans-serif
+}
+
+.columns-description p+p {
+  margin-top: 24px
+}
+
+.columns-description ul {
+  list-style-type: disc
+}
+
+.columns-description *+ul,.columns-description *+ol {
+  margin-top: 40px
+}
+
+.columns-description .newHomeLink.newHomeLink--internal:before {
+  display: none
+}
+
+.columns-description .contactSupport__base {
+  list-style-type: none;
+  padding-left: 0
+}
+
+.columns-description .contactSupport__base li {
+  margin-bottom: 16px
+}
+
+.columns-description .contactSupport__base .contactSupport__companyEntry b:first-child {
+  display: block;
+  margin-bottom: -10px
+}
+
+.columns-description ul,.columns-description ol {
+  padding-left: 20px
+}
+
+.columns-description ul+*,.columns-description ol+* {
+  margin-top: 56px
+}
+
+@media (min-width: 600px) {
+  .columns-description ul+*,.columns-description ol+* {
+      margin-top:64px
+  }
+}
+
+@media (min-width: 1024px) {
+  .columns-description ul+*,.columns-description ol+* {
+      margin-top:56px
+  }
+}
+
+@media (min-width: 1440px) {
+  .columns-description ul+*,.columns-description ol+* {
+      margin-top:64px
+  }
+}
+
+.columns-description ul.newHomeLinkList,.columns-description ol.newHomeLinkList {
+  padding-left: 0;
+  list-style-type: none
+}
+
+.columns-description ul.newHomeLinkList li,.columns-description ol.newHomeLinkList li {
+  margin-bottom: 16px
+}
+
+.columns-description ul.newHomeLinkList li:last-child,.columns-description ol.newHomeLinkList li:last-child {
+  margin-bottom: 0
+}
+
+.columns-description ul.newHomeLinkList li>a,.columns-description ol.newHomeLinkList li>a {
+  border-bottom: none
+}
+
+.columns-description ul.newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before,.columns-description ol.newHomeLinkList .newHomeLink.newHomeLink--iconLeft:before {
+  display: inline-block
+}
+
+.columns-description .newtonBulletList li {
+  margin-bottom: 16px
+}
+
+.columns-description .newtonBulletList li:last-child {
+  margin-bottom: 0
 }
