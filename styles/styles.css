@@ -10,6 +10,50 @@
  * governing permissions and limitations under the License.
  */
 
+ @font-face {
+  font-family: 'Siemens Sans Black Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 85.98%;
+  descent-override: 21.52%;
+  line-gap-override: 0.00%;
+  size-adjust: 111.65%;
+}
+
+@font-face {
+  font-family: 'Siemens Sans Roman Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 96.65%;
+  descent-override: 24.19%;
+  line-gap-override: 0.00%;
+  size-adjust: 99.33%;
+}
+
+@font-face {
+  font-family: 'Siemens Sans Prof Bold Fallback';
+  font-style: bold;
+  font-weight: 700;
+  src: local('Arial Bold');
+  ascent-override: 97.96%;
+  descent-override: 24.52%;
+  line-gap-override: 0.00%;
+  size-adjust: 97.99%;
+}
+
+@font-face {
+  font-family: 'Siemens Sans Prof Italic Fallback';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Arial Italic');
+  ascent-override: 95.86%;
+  descent-override: 23.99%;
+  line-gap-override: 0.00%;
+  size-adjust: 100.14%;
+}
+
  :root {
   /* colors */
   --link-color: #035fe6;
@@ -20,9 +64,10 @@
   --text-color: #000;
 
   /* fonts */
-  --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
+
+  /* --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace; */
 
   /* body sizes */
   --body-font-size-m: 22px;

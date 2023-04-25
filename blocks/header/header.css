@@ -88,7 +88,7 @@
 
 .newHomeHeader__links .newHomeHeader__link {
   font-size: 1.125rem;
-  font-family: Siemens Sans Roman,arial,sans-serif;
+  font-family: 'Siemens Sans Roman', 'Siemens Sans Roman Fallback';
   line-height: 1.5555555556;
   color: var(--theme-color-1);
   font-weight: 400;
@@ -161,7 +161,7 @@
 
 .newHomeHeader__firstNaviItem {
   font-size: 1.125rem;
-  font-family: Siemens Sans Black,arial,sans-serif;
+  font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
   line-height: 1.5555555556;
   color: var(--theme-color-1);
   font-weight: 400;
@@ -261,7 +261,7 @@
 
 .newHomeHeader__regionSelector {
   font-size: 1.125rem;
-  font-family: Siemens Sans Black,arial,sans-serif;
+  font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
   line-height: 1.5555555556;
   color: var(--theme-color-1);
   font-weight: 400;
