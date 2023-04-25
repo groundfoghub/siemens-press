@@ -103,16 +103,16 @@ export default function decorate(block) {
     const description = document.createElement('div');
     description.classList.add('newHomeCard__description');
 
-    // Remaining paragraphs, can be
+    // Remaining paragraphs, can be...
     const contentToAdd = [...element.querySelectorAll('p')];
     contentToAdd.forEach((node) => {
       const [, maybeDate] = node.textContent.split(',');
 
       if (isStringDate(maybeDate)) {
-        // ... the card event time and location
+        // ... the card event time and location,
         content.append(createEvent(node));
       } else {
-        // ... or part of card description
+        // ... or part of card description.
         description.append(node);
       }
     });
