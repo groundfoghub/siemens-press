@@ -69,6 +69,16 @@ export default function decorate(block) {
 
   const noSwipingSelector = '.fluidVideo';
 
+  /* once the swipping has started the prev and next slide are shown
+  style opacity: 1 */
+
+  const removeClassFromCarousel = () => {
+    carousel.classList.remove('newHomeCarousel--swipingNotStarted');
+    next?.removeEventListener('click', removeClassFromCarousel);
+  };
+
+  next?.addEventListener('click', removeClassFromCarousel);
+
   /* eslint-disable no-new */
   new Swiper('.swiper', {
     centeredSlides: true,
