@@ -1,3 +1,4 @@
+import { buildBlock, decorateBlock } from './lib-franklin.js';
 import { findNodesByRegExp } from './utils.js';
 
 export const decorateAsFluidwebPage = (root) => {
@@ -44,6 +45,13 @@ export const renditionsWidths = [
   320,
   100,
 ];
+
+export const createAssetVideo = (videoReference) => {
+  // Embed block expects a link, so video reference is passed in href
+  const videoBlock = document.createElement('a');
+  videoBlock.href = videoReference;
+  return buildBlock('embed', { elems: [videoBlock] });
+};
 
 export const createAssetPicture = (uuid, alt = '', eager = false) => {
   const picture = document.createElement('picture');
@@ -93,13 +101,17 @@ export const decorateMedia = (element) => {
   const MEDIA_REGEX = /image|video:([a-z0-9-]*)/gi;
   findNodesByRegExp(element, MEDIA_REGEX).forEach((media) => {
     const mediaMarker = media.textContent.split(':');
+    let videoBlock;
 
     switch (mediaMarker[0].toLowerCase()) {
       case 'image':
-        media.textContent = '';
-        media.append(createAssetPicture(mediaMarker[1]));
+        media.replaceWith(createAssetPicture(mediaMarker[1]));
         break;
       case 'video':
+        videoBlock = createAssetVideo(media.textContent);
+        media.replaceWith(videoBlock);
+        decorateBlock(videoBlock); // Will enable lazy loading of inner block logic
+        media.classList.add('fluidVideo');
         break;
 
       default:
