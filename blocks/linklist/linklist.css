@@ -62,7 +62,7 @@ siemens.com styles adjusted for linklist*/
 /* NewHomeCard */
 
 @media (min-width: 1024px) {
-  .newHomeCard {
+  .linklist .newHomeCard {
       display: block;
       column-gap: 60px
   }
