@@ -1,4 +1,4 @@
-import { getOptionClasses, removeClasses } from '../../scripts/utils.js';
+import { getOptionClasses, isHeading, removeClasses } from '../../scripts/utils.js';
 
 const options = Object.freeze({
   1: 'newHomeCards--oneColumn',
@@ -10,6 +10,29 @@ const options = Object.freeze({
   three: 'newHomeCards--threeColumns',
   four: 'newHomeCards--fourColumns',
 });
+
+const createEvent = (node) => {
+  const [locationText, dateText] = node.innerHTML.split(',');
+
+  const event = document.createElement('div');
+  event.classList.add('newHomeCard__event');
+
+  if (locationText) {
+    const location = document.createElement('div');
+    location.classList.add('newHomeCard__location');
+    location.innerHTML = locationText;
+    event.append(location);
+  }
+
+  if (dateText) {
+    const date = document.createElement('div');
+    date.classList.add('newHomeCard__date');
+    date.innerHTML = dateText;
+    event.append(date);
+  }
+
+  return event;
+};
 
 export default function decorate(block) {
   block.classList.add(
@@ -48,37 +71,17 @@ export default function decorate(block) {
 
     const contentToAdd = [...element.firstElementChild.children];
     contentToAdd.forEach((node, idx) => {
-      const headingOptions = /^h\d$/i.test(node.tagName);
+      const headingOptions = isHeading(node);
       const headingWithClass = node.classList.contains('headline');
 
       const isEventLocationDate = idx === 0 && !headingOptions && !headingWithClass;
-      const isHeading = headingOptions || headingWithClass;
       const isDescription = node.tagName === 'P';
       const isLink = node.classList.contains('button-container');
 
       if (isEventLocationDate) {
-        const [locationText, dateText] = node.innerHTML.split(',');
-
-        const event = document.createElement('div');
-        event.classList.add('newHomeCard__event');
-
-        if (locationText) {
-          const location = document.createElement('div');
-          location.classList.add('newHomeCard__location');
-          location.innerHTML = locationText;
-          event.append(location);
-        }
-
-        if (dateText) {
-          const date = document.createElement('div');
-          date.classList.add('newHomeCard__date');
-          date.innerHTML = dateText;
-          event.append(date);
-        }
-
-        element.append(event);
+        element.append(createEvent(node));
         node.remove();
-      } else if (isHeading) {
+      } else if (headingOptions || headingWithClass) {
         const headingElement = headingOptions ? node : node.querySelector('h2');
         headingElement.classList.add('newHomeCard__heading');
         contentWithTags.append(headingElement);
