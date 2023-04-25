@@ -1,21 +1,9 @@
-import { getOptionClasses, removeClasses } from '../../scripts/utils.js';
-
-const options = Object.freeze({
-  1: 'newHomeCards--oneColumn',
-  2: 'newHomeCards--twoColumns',
-  3: 'newHomeCards--threeColumns',
-  4: 'newHomeCards--fourColumns',
-  one: 'newHomeCards--oneColumn',
-  two: 'newHomeCards--twoColumns',
-  three: 'newHomeCards--threeColumns',
-  four: 'newHomeCards--fourColumns',
-});
+import { removeClasses } from '../../scripts/utils.js';
 
 export default function decorate(block) {
   block.classList.add(
     'newHomeCards',
     'newHomeComponent',
-    getOptionClasses(block, options, [1]),
   );
   const listWrapper = block.children[0];
   listWrapper.classList.add('newHomeCards__list');
@@ -26,7 +14,7 @@ export default function decorate(block) {
 
     // card inside card wrapper
     const card = document.createElement('div');
-    card.classList.add('newHomeCard', 'newHomeCard--oneColumn', 'newHomeComponent', 'newHomeScrollSection');
+    card.classList.add('newHomeCard', 'newHomeComponent', 'newHomeScrollSection');
 
     // if image add it to card
     const cardItems = cardWrapper.children;
