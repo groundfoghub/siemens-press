@@ -1,3 +1,6 @@
+/**
+ * @param {Element} element
+ */
 export const removeClasses = (element) => {
   element.classList.forEach((className) => {
     element.classList.remove(className);
@@ -19,6 +22,12 @@ export const getSectionMetadata = (element, property) => {
   return undefined;
 };
 
+/**
+ * @param {Element} block
+ * @param {Object} options
+ * @param {Object} defaultOptions
+ * @returns {Array} Map element class names to values of 'option' object.
+ */
 export const getOptionClasses = (block, options, defaultOptions) => {
   const classKeys = Object.keys(options);
 
@@ -57,3 +66,14 @@ export const findNodesByRegExp = (element, regExp) => {
 };
 
 export const isHeading = (node) => /^h\d$/i.test(node.tagName);
+
+/**
+ *
+ * @param {string} maybeDate
+ * @returns {boolean}
+ */
+export const isStringDate = (maybeDate) => {
+  const properDate = new Date(maybeDate);
+
+  return typeof maybeDate !== 'undefined' && !Number.isNaN(properDate);
+};
