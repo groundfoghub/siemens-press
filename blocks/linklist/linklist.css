@@ -8,21 +8,22 @@ siemens.com styles adjusted for linklist*/
   margin-right: calc(var(--grid-width) / var(--grid-columns-count) * 2)
 }
 
-.newHomeCards__list {
+.linklist .newHomeCards__list {
   list-style-type: decimal;
   display: flex;
   flex-direction: column;
-  row-gap: 80px
+  row-gap: 80px;
+  column-gap: 40px;
 }
 
 @media (min-width: 600px) {
-  .newHomeCards__list {
+  .linklist .newHomeCards__list {
       flex-direction: unset;
   }
 }
 
 
-.newHomeCards__list>div {
+.linklist .newHomeCards__list>div {
   list-style: none;
   min-width: 0;
   flex: 1;
@@ -30,11 +31,6 @@ siemens.com styles adjusted for linklist*/
 
 .newHomeCards--teaser .newHomeCards__list {
   row-gap: 40px
-}
-
-.newHomeCards__list {
-  -moz-column-gap: 40px;
-  column-gap: 40px
 }
 
 .newHomeCards .newHomeHeadline {
