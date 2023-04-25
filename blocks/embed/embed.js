@@ -113,9 +113,6 @@ export default function decorate(block) {
   const placeholder = block.querySelector('picture');
   const link = block.querySelector('a').href;
 
-  // if (!link) {
-  //   link = block.querySelector('p').textContent;
-  // }
   block.textContent = '';
 
   if (placeholder) {

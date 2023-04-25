@@ -110,7 +110,7 @@ export const decorateMedia = (element) => {
       case 'video':
         videoBlock = createAssetVideo(media.textContent);
         media.replaceWith(videoBlock);
-        decorateBlock(videoBlock); // Will enable lazy loading of inner block logic
+        decorateBlock(videoBlock); // Will enable lazy loading of block code
         media.classList.add('fluidVideo');
         break;
 
