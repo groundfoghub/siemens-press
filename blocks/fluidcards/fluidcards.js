@@ -1,4 +1,4 @@
-import { getOptionClasses, isHeading, removeClasses } from '../../scripts/utils.js';
+import { getOptionClasses, isStringDate, removeClasses } from '../../scripts/utils.js';
 
 const options = Object.freeze({
   1: 'newHomeCards--oneColumn',
@@ -45,12 +45,14 @@ export default function decorate(block) {
   list.classList.add('newHomeCards__list');
 
   [...block.children].forEach((element, index) => {
+    let buttonContainer;
     const cardWrapper = document.createElement('div');
     cardWrapper.classList.add('newHomeCardWrapper', `newHomeCardNumber${index}`);
 
     const card = document.createElement('div');
     card.classList.add('newHomeCard', 'newHomeCard--oneColumn', 'newHomeComponent', 'newHomeScrollSection');
 
+    // Picture
     const picture = element.querySelector('picture');
     if (picture) {
       const media = document.createElement('div');
@@ -58,68 +60,71 @@ export default function decorate(block) {
       media.append(picture);
       card.append(media);
     }
-    element.firstElementChild.remove();
+
+    // Text content
+    const content = document.createElement('div');
+    content.classList.add('newHomeCard__content');
 
     const contentWithTags = document.createElement('div');
     contentWithTags.classList.add('newHomeCard__contentWithTags');
 
+    // Heading
+    const headingElement = element.querySelector('h1, h2, h3, h4, h5, h6');
+    if (headingElement) {
+      headingElement.classList.add('newHomeCard__heading');
+      contentWithTags.append(headingElement);
+    }
+
+    // Link
+    const link = element.querySelector('.button-container a');
+    if (link) {
+      buttonContainer = document.createElement('div');
+      buttonContainer.classList.add('newHomeCard__buttonContainer');
+      removeClasses(link);
+      link.classList.add(
+        'newHomeCard__button',
+        'newHomeButton',
+        'newHomeButton--terciery',
+        'newHomeButton--link',
+        'newHomeCard__button',
+        'newHomeLink',
+        'newHomeLink--decorated',
+        'newHomeLink--internal',
+        'newHomeLink--iconRight',
+        'newHomeCard__button',
+        'newHomeButton',
+        'newHomeButton--terciery',
+        'newHomeButton--link',
+        'newHomeCard__button',
+      );
+      buttonContainer.append(link);
+    }
+
     const description = document.createElement('div');
     description.classList.add('newHomeCard__description');
 
-    const buttonContainer = document.createElement('div');
-    buttonContainer.classList.add('newHomeCard__buttonContainer');
+    // Remaining paragraphs, can be
+    const contentToAdd = [...element.querySelectorAll('p')];
+    contentToAdd.forEach((node) => {
+      const [, maybeDate] = node.textContent.split(',');
 
-    const contentToAdd = [...element.firstElementChild.children];
-    contentToAdd.forEach((node, idx) => {
-      const headingOptions = isHeading(node);
-      const headingWithClass = node.classList.contains('headline');
-
-      const isEventLocationDate = idx === 0 && !headingOptions && !headingWithClass;
-      const isDescription = node.tagName === 'P';
-      const isLink = node.classList.contains('button-container');
-
-      if (isEventLocationDate) {
-        element.append(createEvent(node));
-        node.remove();
-      } else if (headingOptions || headingWithClass) {
-        const headingElement = headingOptions ? node : node.querySelector('h2');
-        headingElement.classList.add('newHomeCard__heading');
-        contentWithTags.append(headingElement);
-      } else if (isLink) {
-        const link = node.querySelector('a');
-        if (link) {
-          removeClasses(link);
-          link.classList.add(
-            'newHomeCard__button',
-            'newHomeButton',
-            'newHomeButton--terciery',
-            'newHomeButton--link',
-            'newHomeCard__button',
-            'newHomeLink',
-            'newHomeLink--decorated',
-            'newHomeLink--internal',
-            'newHomeLink--iconRight',
-            'newHomeCard__button',
-            'newHomeButton',
-            'newHomeButton--terciery',
-            'newHomeButton--link',
-            'newHomeCard__button',
-          );
-        }
-        buttonContainer.append(link);
-        node.remove();
-      } else if (isDescription) {
+      if (isStringDate(maybeDate)) {
+        // ... the card event time and location
+        content.append(createEvent(node));
+      } else {
+        // ... or part of card description
         description.append(node);
       }
     });
 
-    element.firstElementChild.remove();
-    element.classList.add('newHomeCard__content');
-    element.append(contentWithTags);
-    element.append(description);
-    element.append(buttonContainer);
+    // Putting all together
+    content.append(contentWithTags);
+    content.append(description);
+    if (buttonContainer) {
+      content.append(buttonContainer);
+    }
 
-    card.append(element);
+    card.append(content);
     cardWrapper.append(card);
     list.append(cardWrapper);
   });
