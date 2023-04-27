@@ -1313,6 +1313,22 @@
     color: var(--theme-color-button-tertiary-hover)
 }
 
+/* global button styles added for franklin */
+
+.newHomeButton.newHomeButton--terciery .icon {
+    margin-right: 17px;
+    position: relative;
+    top: 4px;
+}
+
+.newHomeButton.newHomeButton--terciery .icon svg {
+    fill: var(--theme-color-button-tertiary-default);
+}
+
+.newHomeButton.newHomeButton--terciery a:hover .icon svg {
+    fill: var(--theme-color-button-tertiary-hover);
+}
+
 :root {
     --grid-width: 100vw;
     --grid-columns-count: 36
