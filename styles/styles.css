@@ -900,6 +900,73 @@ sup,sub {
   }
 }
 
+/* NewHomeButton, stage hero button */
+
+.newHomeButton {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  padding: 8px 48px;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: calc(100vw - calc(var(--grid-width) / var(--grid-columns-count) * 4))
+}
+
+@media (min-width: 600px) {
+  .newHomeButton {
+      max-width:460px
+  }
+}
+
+.newHomeButton:focus-visible {
+  outline: 2px solid #199fff;
+  outline-offset: 2px
+}
+
+.newHomeButton:focus,.newHomeButton:focus-visible {
+  box-shadow: none
+}
+
+.newHomeButton:disabled {
+  cursor: not-allowed;
+  opacity: .2
+}
+
+.newHomeButton.newHomeButton--hero {
+  font-size: 1.125rem;
+  font-family: Siemens Sans Black,arial,sans-serif;
+  line-height: 1.5555555556;
+  color: var(--theme-color-1);
+  font-weight: 400;
+  padding: 16px 40px;
+  text-align: center;
+  color: var(--theme-color-2);
+  background: linear-gradient(90deg,var(--theme-color-8) 0%,var(--theme-color-9) 100%)
+}
+
+@media (min-width: 600px) {
+  .newHomeButton.newHomeButton--hero {
+      font-size:1.25rem;
+      font-family: Siemens Sans Black,arial,sans-serif;
+      line-height: 1.4
+  }
+}
+
+.newHomeButton.newHomeButton--hero:hover,.newHomeButton.newHomeButton--hero:active {
+  background: #c5ffef
+}
+
+@media (min-width: 600px) {
+  .newHomeButton.newHomeButton--hero {
+      padding:16px 56px
+  }
+}
+
 /* adjust frankling styles */
 
 .default-content-wrapper {
