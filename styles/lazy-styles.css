@@ -1125,7 +1125,8 @@
     border-bottom-color: #707375
 }
 
-.newHomeButton {
+/* moved to styles */
+/* .newHomeButton {
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -1158,7 +1159,7 @@
 .newHomeButton:disabled {
     cursor: not-allowed;
     opacity: .2
-}
+} */
 
 .newHomeButton.newHomeLink:after {
     margin-left: 17px
@@ -1230,7 +1231,8 @@
     background-color: #00ffb9
 }
 
-.newHomeButton.newHomeButton--hero {
+/* moved to styles */
+/* .newHomeButton.newHomeButton--hero {
     font-size: 1.125rem;
     font-family: Siemens Sans Black,arial,sans-serif;
     line-height: 1.5555555556;
@@ -1258,7 +1260,7 @@
     .newHomeButton.newHomeButton--hero {
         padding:16px 56px
     }
-}
+} */
 
 .newHomeButton.newHomeButton--primary {
     font-size: 1.125rem;
