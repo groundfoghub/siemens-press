@@ -35,5 +35,5 @@ export const isHeading = (node) => /^h\d$/i.test(node.tagName);
 export const isStringDate = (maybeDate) => {
   const properDate = new Date(maybeDate);
 
-  return typeof maybeDate !== 'undefined' && !Number.isNaN(properDate);
+  return typeof maybeDate !== 'undefined' && !(Number.isNaN(properDate.getTime()));
 };
