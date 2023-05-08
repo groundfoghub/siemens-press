@@ -250,7 +250,7 @@
   
   .newHomeStage__topics .newHomeTopic__topicList {
     font-size: 1.125rem;
-    font-family: Siemens Sans Black,arial,sans-serif;
+    font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
     line-height: 1.2222222222;
     color: var(--theme-color-1);
     font-weight: 400;
@@ -260,7 +260,7 @@
   
   .newHomeStage__header {
     font-size: 2.5rem;
-    font-family: Siemens Sans Black,arial,sans-serif;
+    font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
     line-height: 1.2;
     color: var(--theme-color-1);
     font-weight: 400;
@@ -278,7 +278,7 @@
   @media (min-width: 600px) {
     .newHomeStage__header {
         font-size:3rem;
-        font-family: Siemens Sans Black,arial,sans-serif;
+        font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
         line-height: 1.1666666667
     }
   }
@@ -286,7 +286,7 @@
   @media (min-width: 1440px) {
     .newHomeStage__header {
         font-size:3.75rem;
-        font-family: Siemens Sans Black,arial,sans-serif;
+        font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
         line-height: 1.2
     }
   }
@@ -314,7 +314,7 @@
   
   .newHomeStage__text {
     font-size: 1.125rem;
-    font-family: Siemens Sans Roman,arial,sans-serif;
+    font-family: 'Siemens Sans Roman', 'Siemens Sans Roman Fallback';
     line-height: 1.5555555556;
     color: var(--theme-color-1);
     font-weight: 400;
@@ -333,12 +333,14 @@
     overflow: hidden
   }
   
-  .newHomeStage__text i {
-    font-family: Siemens Sans Prof Italic,arial,sans-serif
+  .newHomeStage__text i,
+  .newHomeStage__text em {
+    font-family: 'Siemens Sans Prof Italic', 'Siemens Sans Prof Italic Fallback'
   }
   
-  .newHomeStage__text b,.newHomeStage__text strong {
-    font-family: Siemens Sans Prof Bold,arial,sans-serif
+  .newHomeStage__text b,
+  .newHomeStage__text strong {
+    font-family: 'Siemens Sans Prof Bold', 'Siemens Sans Prof Bold Fallback'
   }
   
   .newHomeStage__text p+p {
@@ -432,7 +434,7 @@
   
   .newHomeStage__button.newHomeButton.newHomeButton--primary {
     font-size: 1.125rem;
-    font-family: Siemens Sans Black,arial,sans-serif;
+    font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
     line-height: 1.5555555556;
     color: var(--theme-color-1);
     font-weight: 400;
@@ -559,7 +561,7 @@
   @media (min-width: 600px) {
     .newHomeStage.newHomeStage--imageRight .newHomeStage__header,.newHomeStage.newHomeStage--imageLeft .newHomeStage__header {
         font-size:2rem;
-        font-family: Siemens Sans Black,arial,sans-serif;
+        font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
         line-height: 1.25;
         color: var(--theme-color-1);
         font-weight: 400;
@@ -570,7 +572,7 @@
   @media (min-width: 600px) and (min-width: 600px) {
     .newHomeStage.newHomeStage--imageRight .newHomeStage__header,.newHomeStage.newHomeStage--imageLeft .newHomeStage__header {
         font-size:2.25rem;
-        font-family: Siemens Sans Black,arial,sans-serif;
+        font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
         line-height: 1.3333333333
     }
   }
@@ -578,14 +580,14 @@
   @media (min-width: 600px) and (min-width: 1440px) {
     .newHomeStage.newHomeStage--imageRight .newHomeStage__header,.newHomeStage.newHomeStage--imageLeft .newHomeStage__header {
         font-size:2.5rem;
-        font-family: Siemens Sans Black,arial,sans-serif;
+        font-family: 'Siemens Sans Black', 'Siemens Sans Black Fallback';
         line-height: 1.3
     }
   }
   
   @media (min-width: 600px) {
     .newHomeStage.newHomeStage--imageRight .newHomeStage__header:first-line,.newHomeStage.newHomeStage--imageLeft .newHomeStage__header:first-line {
-        font-family:Siemens Sans Black,arial,sans-serif
+        font-family:'Siemens Sans Black', 'Siemens Sans Black Fallback'
     }
   }
   

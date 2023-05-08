@@ -3,23 +3,23 @@
 /* stylelint-disable */
 
 /* default.page */
-
-  @font-face {
-    font-family: Siemens Sans Black;
-    src: url(/fonts/woff2/SiemensSans_Prof_Black.woff2) format("woff2");
+@font-face {
+    font-family: 'Siemens Sans Black';
+    font-style: normal;
     font-weight: 400;
-    font-display: swap
+    font-display: swap;
+    src: url('/fonts/woff2/SiemensSans_Prof_Black.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: Siemens Sans Black;
+    font-family: 'Siemens Sans Black';
     font-style: italic;
     font-display: swap;
     src: url(/fonts/woff2/SiemensSans_Prof_BlackItalic.woff2) format("woff2")
 }
 
 @font-face {
-    font-family: Siemens Sans Prof Bold;
+    font-family: 'Siemens Sans Prof Bold';
     font-style: bold;
     font-weight: 700;
     font-display: swap;
@@ -27,7 +27,7 @@
 }
 
 @font-face {
-    font-family: Siemens Sans Prof Bold Italic;
+    font-family: 'Siemens Sans Prof Bold Italic';
     font-style: italic;
     font-weight: 700;
     font-display: swap;
@@ -35,14 +35,14 @@
 }
 
 @font-face {
-    font-family: Siemens Sans Prof Italic;
+    font-family: 'Siemens Sans Prof Italic';
     font-style: italic;
     font-display: swap;
     src: url(/fonts/woff2/SiemensSans_Prof_Italic.woff2) format("woff2")
 }
 
 @font-face {
-    font-family: Siemens Sans Roman;
+    font-family: 'Siemens Sans Roman';
     font-style: italic;
     font-display: swap;
     src: url(/fonts/woff2/SiemensSans_Prof_Roman.woff2) format("woff2")
