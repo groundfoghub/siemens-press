@@ -37,10 +37,21 @@ export default function decorate(block) {
   const text = document.createElement('div');
   text.classList.add('newHomeStage__text');
 
+  // Enhancing Primary button to Hero button
+  const heroButton = block.querySelector('.newHomeButton--primary');
+
+  if (heroButton) {
+    heroButton.classList.replace('newHomeButton--primary', 'newHomeButton--hero');
+    heroButton.parentElement.removeChild(heroButton);
+  }
+
   [...block.children].forEach((element) => {
     text.append(element);
   });
   description.append(text);
+  if (heroButton) {
+    description.append(heroButton);
+  }
   content.append(description);
 
   block.append(imageWrapper);

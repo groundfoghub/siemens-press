@@ -140,10 +140,6 @@ export const decorateButtonsFW = (element) => {
           if (a.firstElementChild?.className.includes('icon')) {
             a.className = 'button tertiary newHomeButton newHomeButton--terciery';
             up.classList.add('button-container');
-          } else if (up.previousElementSibling?.tagName === 'H1') {
-            // hero button inside stage with H1 (header only)
-            a.className = 'button newHomeButton newHomeButton--hero';
-            up.classList.add('button-container');
           }
         } else if (up.tagName === 'STRONG'
           && twoup.childNodes.length === 1 && twoup.tagName === 'P') {

@@ -25,10 +25,31 @@ function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   const paragraph = main.querySelector('h1 + p, h1 + ul, h1 + ol');
+  const button = main.querySelector('a');
   // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+  if (h1 && picture && (h1.compareDocumentPosition(picture) && Node.DOCUMENT_POSITION_PRECEDING)) {
+    let elems = [picture, h1];
+
+    if (paragraph) {
+      elems = [
+        ...elems,
+        paragraph,
+      ];
+    }
+
+    if (button && paragraph
+      && (
+        (button.compareDocumentPosition(paragraph) && Node.DOCUMENT_POSITION_PRECEDING)
+        || (button.compareDocumentPosition(h1) && Node.DOCUMENT_POSITION_PRECEDING)
+      )
+    ) {
+      elems = [
+        ...elems,
+        button,
+      ];
+    }
     const section = document.createElement('div');
-    section.append(buildBlock('stage', { elems: [picture, h1, paragraph] }));
+    section.append(buildBlock('stage', { elems }));
     main.prepend(section);
   }
 }
