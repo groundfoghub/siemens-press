@@ -120,3 +120,41 @@ export const decorateMedia = (element) => {
     }
   });
 };
+
+/**
+ * Decorates paragraphs containing a single link as buttons.
+ * @param {Element} element container element
+ */
+export const decorateButtonsFW = (element) => {
+  element.querySelectorAll('a').forEach((a) => {
+    a.title = a.title || a.textContent;
+    if (a.href !== a.textContent && !a.querySelector('img')) {
+      const up = a.parentElement;
+      const twoup = a.parentElement.parentElement;
+
+      if (up.childNodes.length === 1) {
+        if (up.tagName === 'P' || up.tagName === 'DIV') {
+          a.className = 'button primary newHomeButton newHomeButton--primary'; // default
+          up.classList.add('button-container');
+          // tertiary button
+          if (a.firstElementChild?.className.includes('icon')) {
+            a.className = 'button tertiary newHomeButton newHomeButton--terciery';
+            up.classList.add('button-container');
+          } else if (up.previousElementSibling?.tagName === 'H1') {
+            // hero button inside stage with H1 (header only)
+            a.className = 'button newHomeButton newHomeButton--hero';
+            up.classList.add('button-container');
+          }
+        } else if (up.tagName === 'STRONG'
+          && twoup.childNodes.length === 1 && twoup.tagName === 'P') {
+          a.className = 'button primary newHomeButton newHomeButton--primary';
+          twoup.classList.add('button-container');
+        } else if (up.tagName === 'EM'
+          && twoup.childNodes.length === 1 && twoup.tagName === 'P') {
+          a.className = 'button secondary newHomeButton newHomeButton--secondary';
+          twoup.classList.add('button-container');
+        }
+      }
+    }
+  });
+};

@@ -111,6 +111,7 @@ export default function decorate(block) {
       if (isStringDate(maybeDate)) {
         // ... the card event time and location,
         content.append(createEvent(node));
+        node.remove();
       } else {
         // ... or part of card description.
         description.append(node);
