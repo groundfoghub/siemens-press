@@ -13,7 +13,7 @@ export default function decorate(block) {
   const option = document.createElement('div');
   option.classList.add(
     getOptionClasses(block, options, ['right']),
-    hasMedia ? undefined : 'newHomeMediaRichText--textOnly',
+    hasMedia ? '' : 'newHomeMediaRichText--textOnly',
   );
   const textWrapper = document.createElement('div');
   textWrapper.classList.add('newHomeMediaRichText__textWrapper');

@@ -130,9 +130,10 @@ export const decorateButtonsFW = (element) => {
     a.title = a.title || a.textContent;
     if (a.href !== a.textContent && !a.querySelector('img')) {
       const up = a.parentElement;
-      const twoup = a.parentElement.parentElement;
 
       if (up.childNodes.length === 1) {
+        const twoup = a.parentElement.parentElement;
+
         if (up.tagName === 'P' || up.tagName === 'DIV') {
           a.className = 'button primary newHomeButton newHomeButton--primary'; // default
           up.classList.add('button-container');
@@ -142,11 +143,11 @@ export const decorateButtonsFW = (element) => {
             up.classList.add('button-container');
           }
         } else if (up.tagName === 'STRONG'
-          && twoup.childNodes.length === 1 && twoup.tagName === 'P') {
+          && twoup.childNodes.length === 1 && (twoup.tagName === 'P' || twoup.tagName === 'DIV')) {
           a.className = 'button primary newHomeButton newHomeButton--primary';
           twoup.classList.add('button-container');
         } else if (up.tagName === 'EM'
-          && twoup.childNodes.length === 1 && twoup.tagName === 'P') {
+          && twoup.childNodes.length === 1 && (twoup.tagName === 'P' || twoup.tagName === 'DIV')) {
           a.className = 'button secondary newHomeButton newHomeButton--secondary';
           twoup.classList.add('button-container');
         }
