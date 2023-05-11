@@ -1,4 +1,6 @@
-import { getMetadata, decorateIcons } from '../../scripts/lib-franklin.js';
+import {
+  buildBlock, decorateBlock, decorateIcons, getMetadata, loadBlock,
+} from '../../scripts/lib-franklin.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -85,6 +87,29 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+const toggleBurgerMenu = (block, navigationHtml) => {
+  const burgerButton = block.querySelector('.newHomeHeader__burgerMenu');
+  const isClosed = !JSON.parse(burgerButton.getAttribute('aria-expanded'));
+
+  if (isClosed) {
+    document.body.classList.add('modal');
+    burgerButton.setAttribute('aria-expanded', true);
+    const exstistingBurgerMenu = block.querySelector('newHomeBurgerMenu');
+
+    if (exstistingBurgerMenu === null) {
+      const navTemp = document.createElement('div');
+      navTemp.innerHTML = navigationHtml;
+      const burgerMenu = buildBlock('burgermenu', { elems: [navTemp] });
+      block.append(burgerMenu);
+      decorateBlock(burgerMenu); // Will enable lazy loading of block code
+      loadBlock(burgerMenu);
+    }
+  } else {
+    document.body.classList.remove('modal');
+    burgerButton.setAttribute('aria-expanded', false);
+  }
+};
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -96,43 +121,17 @@ export default async function decorate(block) {
   const resp = await fetch(`${navPath}.plain.html`);
 
   if (resp.ok) {
-    const navWrapper = document.createElement('div');
-    navWrapper.classList.add('nav-wrapper', 'newHomeHeader__topBar');
+    const navigationHtml = await resp.text();
 
-    // Build Logo
-    const logoContainer = document.createElement('div');
-    logoContainer.classList.add('newHomeHeader__logoContainer');
+    const navTemp = document.createElement('div');
+    navTemp.innerHTML = navigationHtml;
 
-    const logo = document.createElement('a');
-    logo.classList.add('newHomeHeader__logo', 'newHomeLink', 'newHomeHeader__logo');
-
-    const logoSiemens = document.createElement('div');
-    logoSiemens.classList.add('newHomeHeader__logoSiemens');
-
-    logo.append(logoSiemens);
-    logoContainer.append(logo);
-    navWrapper.append(logoContainer);
-
-    // Build search
-    const burgerMenuWrapper = document.createElement('div');
-    burgerMenuWrapper.classList.add('newHomeHeader__burgerMenuWrapper');
-    const burgerMenu = document.createElement('button');
-    burgerMenu.classList.add('newHomeHeader__burgerMenu');
-
-    burgerMenuWrapper.append(burgerMenu);
-    navWrapper.append(burgerMenuWrapper);
-
-    const html = await resp.text();
+    const primaryNav = navTemp.querySelector('ul');
 
     // decorate nav DOM
     const nav = document.createElement('nav');
     nav.classList.add('newHomeHeader__navigation');
     nav.id = 'navigation';
-
-    const navTemp = document.createElement('div');
-    navTemp.innerHTML = html;
-
-    const primaryNav = navTemp.querySelector('ul');
 
     [...primaryNav.children].forEach((element) => {
       element.querySelector('a').classList.add('newHomeHeader__firstNaviItem');
@@ -149,6 +148,41 @@ export default async function decorate(block) {
     const links = document.createElement('nav');
     links.classList.add('newHomeHeader__links');
     links.append(secondaryNav);
+
+    const navWrapper = document.createElement('div');
+    navWrapper.classList.add('nav-wrapper', 'newHomeHeader__topBar');
+
+    // Build Logo
+    const logoContainer = document.createElement('div');
+    logoContainer.classList.add('newHomeHeader__logoContainer');
+
+    const logo = document.createElement('a');
+    logo.classList.add('newHomeHeader__logo', 'newHomeLink', 'newHomeHeader__logo');
+    logo.href = '/';
+
+    const logoSiemens = document.createElement('div');
+    logoSiemens.classList.add('newHomeHeader__logoSiemens');
+
+    logo.append(logoSiemens);
+    logoContainer.append(logo);
+    navWrapper.append(logoContainer);
+
+    const burgerMenuWrapper = document.createElement('div');
+    burgerMenuWrapper.classList.add('newHomeHeader__burgerMenuWrapper');
+    const burgerMenu = document.createElement('button');
+    burgerMenu.classList.add('newHomeHeader__burgerMenu');
+    burgerMenu.setAttribute('aria-expanded', false);
+    burgerMenu.addEventListener('click', () => toggleBurgerMenu(block, navigationHtml));
+    burgerMenuWrapper.append(burgerMenu);
+    navWrapper.append(burgerMenuWrapper);
+
+    const burgerMenuCloseWrapper = document.createElement('div');
+    burgerMenuCloseWrapper.classList.add('newHomeHeader__navigationCloseWrapper');
+    const burgerMenuClose = document.createElement('button');
+    burgerMenuClose.classList.add('newHomeHeader__navigationClose');
+    burgerMenuClose.addEventListener('click', () => toggleBurgerMenu(block, navigationHtml));
+    burgerMenuCloseWrapper.append(burgerMenuClose);
+    navWrapper.append(burgerMenuCloseWrapper);
 
     navWrapper.append(nav);
     navWrapper.append(links);

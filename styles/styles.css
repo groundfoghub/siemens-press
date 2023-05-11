@@ -242,6 +242,34 @@ main .section[data-section-status='initialized'] {
   background-color: var(--highlight-background-color);
 } */
 
+.modal {
+  position: fixed;
+  top: 0;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.modal .newHomeHeader {
+  position: fixed;
+  background-color: var(--theme-color-12);
+  z-index: 1000;
+  top: 0;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.modal .newHomeHeader__burgerMenuWrapper {
+  display: none;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.modal .newHomeHeader__navigationCloseWrapper {
+  display: flex;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.modal .newHomeBurgerMenu {
+  display: block;
+}
+
 /*
  .COM styles "above the fold"
  */
