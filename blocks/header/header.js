@@ -92,9 +92,7 @@ const toggleBurgerMenu = (block, navigationHtml) => {
   const isClosed = !JSON.parse(burgerButton.getAttribute('aria-expanded'));
 
   if (isClosed) {
-    document.body.classList.add('modal');
-    burgerButton.setAttribute('aria-expanded', true);
-    const exstistingBurgerMenu = block.querySelector('newHomeBurgerMenu');
+    const exstistingBurgerMenu = block.querySelector('.newHomeBurgerMenu');
 
     if (exstistingBurgerMenu === null) {
       const navTemp = document.createElement('div');
@@ -104,6 +102,8 @@ const toggleBurgerMenu = (block, navigationHtml) => {
       decorateBlock(burgerMenu); // Will enable lazy loading of block code
       loadBlock(burgerMenu);
     }
+    burgerButton.setAttribute('aria-expanded', true);
+    document.body.classList.add('modal');
   } else {
     document.body.classList.remove('modal');
     burgerButton.setAttribute('aria-expanded', false);
