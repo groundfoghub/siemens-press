@@ -311,11 +311,11 @@
   justify-content: end
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .newHomeHeader__navigationCloseWrapper {
       margin-top:32px
   }
-}
+} */
 
 .newHomeHeader--open .newHomeHeader__navigationCloseWrapper {
   display: flex
