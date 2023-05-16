@@ -12,7 +12,7 @@ import {
   loadCSS,
 } from './lib-franklin.js';
 
-import { decorateButtonsFW, decorateAsFluidwebPage } from './fluidweb.js';
+import { decorateButtonsFW, decorateMedia, decorateAsFluidwebPage } from './lib-fluidweb.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
@@ -25,10 +25,31 @@ function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   const paragraph = main.querySelector('h1 + p, h1 + ul, h1 + ol');
+  const button = main.querySelector('a');
   // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+  if (h1 && picture && (h1.compareDocumentPosition(picture) && Node.DOCUMENT_POSITION_PRECEDING)) {
+    let elems = [picture, h1];
+
+    if (paragraph) {
+      elems = [
+        ...elems,
+        paragraph,
+      ];
+    }
+
+    if (button && paragraph
+      && (
+        (button.compareDocumentPosition(paragraph) && Node.DOCUMENT_POSITION_PRECEDING)
+        || (button.compareDocumentPosition(h1) && Node.DOCUMENT_POSITION_PRECEDING)
+      )
+    ) {
+      elems = [
+        ...elems,
+        button,
+      ];
+    }
     const section = document.createElement('div');
-    section.append(buildBlock('stage', { elems: [picture, h1, paragraph] }));
+    section.append(buildBlock('stage', { elems }));
     main.prepend(section);
   }
 }
@@ -74,6 +95,7 @@ function buildAutoBlocks(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  decorateMedia(main);
   // hopefully forward compatible button decoration
   decorateButtonsFW(main);
   decorateIcons(main);

@@ -242,6 +242,38 @@ main .section[data-section-status='initialized'] {
   background-color: var(--highlight-background-color);
 } */
 
+.modal {
+  position: fixed;
+  top: 0;
+}
+
+/* stylelint-disable selector-class-pattern */
+.modal .newHomeHeader {
+  position: fixed;
+  background-color: var(--theme-color-12);
+  z-index: 1000;
+  top: 0;
+}
+
+.modal .newHomeHeader__burgerMenuWrapper {
+  display: none;
+}
+
+.modal .newHomeHeader__navigationCloseWrapper {
+  display: flex;
+}
+
+.burgermenu[data-block-status='loading'],
+.burgermenu[data-block-status='initialized'] {
+  display: none;
+}
+
+.modal .newHomeBurgerMenu {
+  display: block;
+}
+
+/* stylelint-enable selector-class-pattern */
+
 /*
  .COM styles "above the fold"
  */
