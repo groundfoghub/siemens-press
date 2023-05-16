@@ -49,8 +49,6 @@ export default function decorate(block) {
   // document.body.querySelectorAll();
 
   // Append elements to construct the HTML block
-  // li1.appendChild(button);
-  // ul1.appendChild(li1);
   div4.appendChild(div5);
   div3.appendChild(div4);
   nav.appendChild(div3);
