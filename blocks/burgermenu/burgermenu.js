@@ -1,4 +1,32 @@
+const createNavigation = (navigationBlock, classNames) => {
+  const navigation = document.createElement('ul');
+  navigation.classList.add(...classNames.ul);
+  [...navigationBlock.children].forEach((element) => {
+    const navLinkData = element.querySelector('a');
+    const navLink = document.createElement('a');
+    const subNavigation = element.parentNode.querySelector('ul');
+
+    const primaryNavItem = document.createElement('li');
+    primaryNavItem.classList.add(...classNames.li);
+    navLink.classList.add(...classNames.a);
+    navLink.textContent = navLinkData.textContent;
+    navLink.href = navLinkData.href;
+    primaryNavItem.append(navLink);
+
+    if (subNavigation) {
+      navLink.classList.add('newHomeBurgerMenu__naviItem--noLink');
+    }
+
+    navigation.append(primaryNavItem);
+  });
+
+  return navigation;
+};
+
 export default function decorate(block) {
+  // Hides initial block content
+  // will be used as data source to render navigation states.
+  block.querySelector('div').style.display = 'none';
   // Create div element with class and data attributes
   const div1 = document.createElement('div');
   div1.className = 'newHomeBurgerMenu newHomeBurgerMenu__showNav newHomeBurgerMenu__NavInUse';
@@ -23,34 +51,26 @@ export default function decorate(block) {
   div5.className = 'newHomeBurgerMenu__firstLevel';
   div5.setAttribute('data-testid', 'burger-menu-component-first-level');
 
-  const primaryNav = block.querySelector('ul');
-  [...primaryNav.children].forEach((element) => {
-    element.className = 'newHomeBurgerMenu__firstLinkappear firstItem';
+  block.querySelectorAll('div > ul').forEach((ul, index) => {
+    let classNames = {
+      ul: [],
+      li: ['newHomeBurgerMenu__firstLinkappear', 'firstItem'],
+      a: ['newHomeBurgerMenu__naviItem'],
+    };
 
-    const navItem = element.querySelector('a');
-    navItem.classList.add('newHomeBurgerMenu__naviItem');
+    if (index !== 0) {
+      classNames = {
+        ul: ['newHomeBurgerMenu__links'],
+        li: [],
+        a: ['newHomeLink', 'newHomeBurgerMenu__link'],
+      };
+    }
+    const navigation = createNavigation(ul, classNames);
+
+    div5.appendChild(navigation);
   });
-
-  div5.appendChild(primaryNav);
-
-  const links = document.createElement('div');
-  links.className = 'newHomeBurgerMenu__links';
-
-  const secondaryNav = block.querySelector('ul');
-  secondaryNav.classList.add('newHomeBurgerMenu__links');
-
-  [...secondaryNav.children].forEach((element) => {
-    const navItem = element.querySelector('a');
-    navItem.classList.add('newHomeBurgerMenu__link', 'newHomeLink', 'newHomeBurgerMenu__link');
-  });
-
-  div5.appendChild(secondaryNav);
-
-  // document.body.querySelectorAll();
 
   // Append elements to construct the HTML block
-  // li1.appendChild(button);
-  // ul1.appendChild(li1);
   div4.appendChild(div5);
   div3.appendChild(div4);
   nav.appendChild(div3);
