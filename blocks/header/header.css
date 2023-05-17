@@ -1,5 +1,11 @@
-/* Styles copied from siemens.com PROD */
 /* stylelint-disable */
+
+/* New styles */
+.newHomeHeader__navigation a + ul {
+  display: none;
+}
+
+/* Styles copied from siemens.com PROD */
 
 .newHomeHeader {
   width: 100%;
