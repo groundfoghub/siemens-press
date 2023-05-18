@@ -8,7 +8,7 @@ const updateDescription = (
   imageTitle,
   paginationCurrent,
 ) => {
-  if (description && descriptionDict[currentIndex]) {
+  if (descriptionDict[currentIndex]) {
     // set the description to the one stored in the descriptionDict
     imageTitle.innerHTML = descriptionDict[currentIndex];
   } else {
@@ -16,6 +16,45 @@ const updateDescription = (
     imageTitle.innerHTML = '';
   }
   paginationCurrent.innerHTML = currentIndex + 1;
+};
+
+const createDescription = (descriptionDict, block, currentIndex, totalSlides) => {
+  const description = document.createElement('div');
+  description.classList.add('newHomeGallery__description');
+
+  const pagination = document.createElement('div');
+  pagination.classList.add('newHomeGallery__pagination');
+
+  const paginationCurrent = document.createElement('span');
+  paginationCurrent.classList.add('newHomeGallery__paginationCurrent');
+  paginationCurrent.innerHTML = currentIndex + 1;
+
+  const paginationTotal = document.createElement('span');
+  paginationTotal.classList.add('newHomeGallery__paginationTotal');
+  paginationTotal.innerHTML = `/ ${totalSlides}`;
+
+  pagination.append(paginationCurrent);
+  pagination.append(paginationTotal);
+
+  const descriptionText = document.createElement('div');
+  descriptionText.classList.add('newHomeGallery__descriptionText');
+
+  const imageTitle = document.createElement('div');
+  imageTitle.classList.add('newHomeGallery__imageTitle');
+
+  // if the first slide has a description add it as imageTitle
+  imageTitle.innerHTML = descriptionDict[currentIndex] ? descriptionDict[currentIndex] : '';
+
+  descriptionText.append(imageTitle);
+
+  description.append(pagination);
+
+  description.append(descriptionText);
+
+  // remove nodes not needed anymore after adding description to imageTitle
+  [...block.children].forEach((child) => child.children[1]?.remove());
+
+  return [description, imageTitle, paginationCurrent];
 };
 
 export default function decorate(block) {
@@ -59,46 +98,18 @@ export default function decorate(block) {
   });
 
   if (hasDescription) {
-    description = document.createElement('div');
-    description.classList.add('newHomeGallery__description');
-
-    const pagination = document.createElement('div');
-    pagination.classList.add('newHomeGallery__pagination');
-
-    paginationCurrent = document.createElement('span');
-    paginationCurrent.classList.add('newHomeGallery__paginationCurrent');
-    paginationCurrent.innerHTML = currentIndex + 1;
-
-    const paginationTotal = document.createElement('span');
-    paginationTotal.classList.add('newHomeGallery__paginationTotal');
-    paginationTotal.innerHTML = `/ ${totalSlides}`;
-
-    pagination.append(paginationCurrent);
-    pagination.append(paginationTotal);
-
-    const descriptionText = document.createElement('div');
-    descriptionText.classList.add('newHomeGallery__descriptionText');
-
-    imageTitle = document.createElement('div');
-    imageTitle.classList.add('newHomeGallery__imageTitle');
-
-    // if the first slide has a description add it as imageTitle
-    imageTitle.innerHTML = [...block.children][0]?.children[1]?.innerHTML;
-
-    descriptionText.append(imageTitle);
-
-    description.append(pagination);
-
-    description.append(descriptionText);
-
-    // remove nodes not needed anymore after adding description to imageTitle
-    [...block.children].forEach((child) => child.children[1]?.remove());
+    [description, imageTitle, paginationCurrent] = createDescription(
+      descriptionDict,
+      block,
+      currentIndex,
+      totalSlides,
+    );
   }
 
   const prev = document.createElement('button');
   prev.classList.add('swiper-button-prev', 'swiper-button');
   prev.addEventListener('click', () => {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+    currentIndex = Math.max(0, currentIndex - 1);
     updateDescription(description, descriptionDict, currentIndex, imageTitle, paginationCurrent);
   });
 
