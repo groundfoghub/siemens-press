@@ -1,7 +1,26 @@
 /* eslint-disable import/no-unresolved */
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
 
+const updateDescription = (description, descriptionDict, currentIndex, imageTitle, paginationCurrent) => {
+  if (description && descriptionDict[currentIndex]) {
+    // set the description to the one stored in the descriptionDict
+    imageTitle.innerHTML = descriptionDict[currentIndex];
+  } else {
+    // if there is no description
+    imageTitle.innerHTML = ''
+  }
+  paginationCurrent.innerHTML = currentIndex  + 1;
+}
+
 export default function decorate(block) {
+  let currentIndex = 0;
+  let descriptionDict = {};
+  let description;
+  let hasDescription = false;
+  let imageTitle;
+  let paginationCurrent;
+  const totalSlides = [...block.children].length;
+
   block.classList.add(
     'newHomeSection',
     'newHomeSection__layoutDefault',
@@ -23,10 +42,67 @@ export default function decorate(block) {
   const navigation = document.createElement('div');
   navigation.classList.add('newHomeCarousel__navigation');
 
+  [...block.children].forEach((child, index) => {
+    // check if any slide has a description and store the text in descriptionDict
+    // if there is a description text add it to the descriptionDict
+    
+    if (child.children[1].innerHTML.length > 0) {
+      hasDescription = true;
+      descriptionDict[index] = child.children[1].innerHTML;
+    }
+  })
+
+  if (hasDescription) {
+      description = document.createElement('div');
+      description.classList.add('newHomeGallery__description');
+
+      const pagination = document.createElement('div');
+      pagination.classList.add('newHomeGallery__pagination');
+
+      paginationCurrent = document.createElement('span');
+      paginationCurrent.classList.add('newHomeGallery__paginationCurrent');
+      paginationCurrent.innerHTML = currentIndex + 1;
+
+      const paginationTotal = document.createElement('span');
+      paginationTotal.classList.add('newHomeGallery__paginationTotal');
+      paginationTotal.innerHTML = '/ ' + totalSlides;
+
+      pagination.append(paginationCurrent)
+      pagination.append(paginationTotal)
+
+      const descriptionText = document.createElement('div');
+      descriptionText.classList.add('newHomeGallery__descriptionText');
+      
+      imageTitle = document.createElement('div');
+      imageTitle.classList.add('newHomeGallery__imageTitle');
+
+      // if the first slide has a description add it as imageTitle
+      imageTitle.innerHTML = [...block.children][0]?.children[1]?.innerHTML;
+
+      descriptionText.append(imageTitle);
+
+      description.append(pagination)
+
+      description.append(descriptionText);
+
+      // remove nodes not needed anymore after adding description to imageTitle
+      [...block.children].forEach(child => child.children[1]?.remove())
+  }
+
   const prev = document.createElement('button');
   prev.classList.add('swiper-button-prev', 'swiper-button');
+  prev.addEventListener('click', () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+    updateDescription(description, descriptionDict, currentIndex, imageTitle, paginationCurrent)
+  })
+
   const next = document.createElement('button');
   next.classList.add('swiper-button-next', 'swiper-button');
+  next.addEventListener('click', () => {
+    currentIndex += 1;
+    updateDescription(description, descriptionDict, currentIndex, imageTitle, paginationCurrent)
+  })
+
   const swiper = document.createElement('div');
   swiper.classList.add('swiper');
   const swiperWrapper = document.createElement('div');
@@ -65,6 +141,10 @@ export default function decorate(block) {
   swiper.append(swiperWrapper);
   navigation.append(swiper);
   carousel.append(navigation);
+  // append description if at least one description exists
+  if (description) {
+    carousel.append(description)
+  }
   block.append(carousel);
 
   const noSwipingSelector = '.fluidVideo';
