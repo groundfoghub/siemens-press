@@ -2,7 +2,6 @@
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
 
 const updateDescription = (
-  description,
   descriptionDict,
   currentIndex,
   imageTitle,
@@ -18,7 +17,7 @@ const updateDescription = (
   paginationCurrent.innerHTML = currentIndex + 1;
 };
 
-const createDescription = (descriptionDict, block, currentIndex, totalSlides) => {
+const createDescription = (descriptionDict, block, totalSlides) => {
   const description = document.createElement('div');
   description.classList.add('newHomeGallery__description');
 
@@ -27,7 +26,7 @@ const createDescription = (descriptionDict, block, currentIndex, totalSlides) =>
 
   const paginationCurrent = document.createElement('span');
   paginationCurrent.classList.add('newHomeGallery__paginationCurrent');
-  paginationCurrent.innerHTML = currentIndex + 1;
+  paginationCurrent.innerHTML = 1;
 
   const paginationTotal = document.createElement('span');
   paginationTotal.classList.add('newHomeGallery__paginationTotal');
@@ -43,7 +42,7 @@ const createDescription = (descriptionDict, block, currentIndex, totalSlides) =>
   imageTitle.classList.add('newHomeGallery__imageTitle');
 
   // if the first slide has a description add it as imageTitle
-  imageTitle.innerHTML = descriptionDict[currentIndex] ? descriptionDict[currentIndex] : '';
+  imageTitle.innerHTML = descriptionDict[0] ? descriptionDict[0] : '';
 
   descriptionText.append(imageTitle);
 
@@ -101,7 +100,6 @@ export default function decorate(block) {
     [description, imageTitle, paginationCurrent] = createDescription(
       descriptionDict,
       block,
-      currentIndex,
       totalSlides,
     );
   }
@@ -110,14 +108,14 @@ export default function decorate(block) {
   prev.classList.add('swiper-button-prev', 'swiper-button');
   prev.addEventListener('click', () => {
     currentIndex = Math.max(0, currentIndex - 1);
-    updateDescription(description, descriptionDict, currentIndex, imageTitle, paginationCurrent);
+    updateDescription(descriptionDict, currentIndex, imageTitle, paginationCurrent);
   });
 
   const next = document.createElement('button');
   next.classList.add('swiper-button-next', 'swiper-button');
   next.addEventListener('click', () => {
     currentIndex += 1;
-    updateDescription(description, descriptionDict, currentIndex, imageTitle, paginationCurrent);
+    updateDescription(descriptionDict, currentIndex, imageTitle, paginationCurrent);
   });
 
   const swiper = document.createElement('div');
