@@ -47,7 +47,7 @@ export default function decorate(block) {
 
   if (picture) {
     const imgWrapper = block.children[0];
-    block.children[0].classList.add('newHomeContentBannerElement__imgWrapper');
+    imgWrapper.classList.add('newHomeContentBannerElement__imgWrapper');
     contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper--hasImg');
     imgWrapper.firstElementChild.classList.add(
       'responsiveImage--hasAspectRatio',
