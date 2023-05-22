@@ -1,6 +1,7 @@
 import {
   buildBlock, decorateBlock, decorateIcons, getMetadata, loadBlock,
 } from '../../scripts/lib-franklin.js';
+import { closeInnerLevel, openInnerLevel } from '../burgermenu/burgermenu.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -87,7 +88,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
-const toggleBurgerMenu = (block, navigationHtml) => {
+const toggleBurgerMenu = async (block, navigationHtml, element, rootLevel) => {
   const burgerButton = block.querySelector('.newHomeHeader__burgerMenu');
   const isClosed = !JSON.parse(burgerButton.getAttribute('aria-expanded'));
 
@@ -100,8 +101,18 @@ const toggleBurgerMenu = (block, navigationHtml) => {
       const burgerMenu = buildBlock('burgermenu', { elems: [navTemp] });
       block.append(burgerMenu);
       decorateBlock(burgerMenu); // Will enable lazy loading of block code
-      loadBlock(burgerMenu);
+      await loadBlock(burgerMenu);
     }
+
+    if (typeof rootLevel !== 'undefined') {
+      const burgerMenuBlock = document.querySelector('.burgermenu');
+      closeInnerLevel(burgerMenuBlock);
+      openInnerLevel(
+        burgerMenuBlock,
+        element,
+      );
+    }
+
     burgerButton.setAttribute('aria-expanded', true);
     document.body.classList.add('modal');
   } else {
@@ -133,8 +144,15 @@ export default async function decorate(block) {
     nav.classList.add('newHomeHeader__navigation');
     nav.id = 'navigation';
 
-    [...primaryNav.children].forEach((element) => {
-      element.querySelector('a').classList.add('newHomeHeader__firstNaviItem');
+    [...primaryNav.children].forEach((element, index) => {
+      const navLink = element.querySelector('a');
+      const navButton = document.createElement('button');
+      navButton.classList.add('newHomeHeader__firstNaviItem');
+      navButton.innerHTML = navLink.innerHTML;
+      navButton.addEventListener('click', () => toggleBurgerMenu(block, navigationHtml, element, index));
+
+      navLink.parentElement.append(navButton);
+      navLink.remove();
     });
 
     nav.append(primaryNav);

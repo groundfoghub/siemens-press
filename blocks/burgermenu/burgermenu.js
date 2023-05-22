@@ -1,15 +1,15 @@
-const closeInnerLevel = (block) => {
+export const closeInnerLevel = (block) => {
   const wrapper = block.querySelector('.newHomeBurgerMenu__navigationWrapper');
 
   wrapper.classList.remove('newHomeBurgerMenu__secondNavLevel');
   wrapper.classList.add('newHomeBurgerMenu__firstNavLevel');
 
-  block.querySelector('.newHomeBurgerMenu__currentPosition').remove();
-  block.querySelector('.newHomeBurgerMenu__showOverviewWrapper').remove();
-  block.querySelector('.newHomeBurgerMenu__navigationRight').remove();
+  block.querySelector('.newHomeBurgerMenu__currentPosition')?.remove();
+  block.querySelector('.newHomeBurgerMenu__showOverviewWrapper')?.remove();
+  block.querySelector('.newHomeBurgerMenu__navigationRight')?.remove();
 };
 
-const openInnerLevel = (block, element) => {
+export const openInnerLevel = (block, element) => {
   const wrapper = block.querySelector('.newHomeBurgerMenu__navigationWrapper');
 
   wrapper.classList.remove('newHomeBurgerMenu__firstNavLevel');
@@ -124,7 +124,8 @@ export default function decorate(block) {
   div5.className = 'newHomeBurgerMenu__firstLevel';
   div5.setAttribute('data-testid', 'burger-menu-component-first-level');
 
-  block.querySelectorAll('div > ul').forEach((ul, index) => {
+  const firstLevelNavigation = block.querySelectorAll('div > ul');
+  firstLevelNavigation.forEach((ul, index) => {
     let classNames = {
       ul: [],
       li: ['newHomeBurgerMenu__firstLinkappear', 'firstItem'],
