@@ -134,7 +134,7 @@ export const decorateButtonsFW = (element) => {
       if (up.childNodes.length === 1) {
         const twoup = a.parentElement.parentElement;
 
-        if (up.tagName === 'P' || up.tagName === 'DIV') {
+        if ((up.tagName === 'P' || up.tagName === 'DIV') && !up.closest('.bannerevent')) {
           a.className = 'button primary newHomeButton newHomeButton--primary'; // default
           up.classList.add('button-container');
           // tertiary button

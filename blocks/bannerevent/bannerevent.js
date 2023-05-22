@@ -44,20 +44,22 @@ export default function decorate(block) {
 
   // Picture can be located wherever in the block
   const picture = block.querySelector('PICTURE');
-  const [topContainer, headline, text] = block.children;
 
   if (picture) {
+    const imgWrapper = block.children[0];
+    imgWrapper.classList.add('newHomeContentBannerElement__imgWrapper');
     contentWrapper.classList.add('newHomeContentBannerElement__contentWrapper--hasImg');
-    picture.classList.add('newHomeContentBannerElement__imgWrapper');
-    picture.firstElementChild.classList.add(
+    imgWrapper.firstElementChild.classList.add(
       'responsiveImage--hasAspectRatio',
       'responsiveImage--supportsAspectRatio',
       'responsiveImage',
       'lazyloaded',
     );
-
-    componentWrapper.append(picture);
+    imgWrapper.firstElementChild.append(picture);
+    componentWrapper.append(imgWrapper);
   }
+
+  const [topContainer, headline, text] = block.children;
 
   if (topContainer) {
     topContainer.classList.add('newHomeContentBannerElement__topContainer');
