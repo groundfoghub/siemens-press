@@ -718,7 +718,7 @@
 }
 
 .newHomeCarouselMedia--limitHeight.swiper-slide .responsiveImage,.newHomeCarouselMedia--limitHeight.swiper-slide .responsiveImage img {
-    object-fit: contain;
+    /* object-fit: contain; */ /* Changed in Franklin */
     height: 100%;
     width: 100%
 }
