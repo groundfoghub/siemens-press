@@ -1,34 +1,3 @@
-const createSaveEventButton = () => {
-  const btnContainer = document.createElement('div');
-  btnContainer.classList.add(
-    'newHomeContentBannerElement__btnsContainer',
-    'newHomeContentBannerElement__btnsContainer--single',
-  );
-
-  const saveDateButton = document.createElement('a');
-  saveDateButton.classList.add(
-    'newHomeContentBannerElement__link',
-    'newHomeButton',
-    'newHomeButton--terciery',
-    'newHomeButton--icon',
-    'newHomeButton--iconDownload',
-    'newHomeContentBannerElement__link',
-  );
-
-  // TODO create ICS file with content when downloading
-  saveDateButton.href = 'file.doc';
-  saveDateButton.setAttribute('download', '');
-
-  const saveDateButtonText = document.createElement('span');
-  saveDateButtonText.classList.add('newHomeContentBannerElement__link-text');
-  saveDateButtonText.innerHTML = 'Save the date';
-
-  saveDateButton.append(saveDateButtonText);
-  btnContainer.append(saveDateButton);
-
-  return btnContainer;
-};
-
 export default function decorate(block) {
   block.classList.add(
     'newHomeContentBannerElement',
@@ -77,8 +46,6 @@ export default function decorate(block) {
     contentWrapper.append(text);
   }
 
-  // Button is always created
-  contentWrapper.append(createSaveEventButton());
   componentWrapper.append(contentWrapper);
 
   block.prepend(componentWrapper);

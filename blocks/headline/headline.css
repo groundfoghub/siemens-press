@@ -60,6 +60,18 @@
     }
 }
 
+.newHomeHeadline__main a {
+    color: var(--theme-color-link-default);
+    text-decoration: none;
+    border-bottom: none;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.newHomeHeadline__main a:hover {
+    color: var(--theme-color-link-hover);
+}
+
 .newHomeHeadline__sub {
     font-size: 1.375rem;
     font-family: Siemens Sans Roman,arial,sans-serif;
