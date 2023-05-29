@@ -107,12 +107,12 @@ export default function decorate(block) {
     const contentToAdd = [...element.querySelectorAll('p')];
     contentToAdd.forEach((node) => {
       let maybeDate;
-      let textContentArr = node.textContent.split(',');
-      
+      const textContentArr = node.textContent.split(',');
+
       if (textContentArr.length > 1) {
-        maybeDate = textContentArr[1]
+        [, maybeDate] = textContentArr;
       } else {
-        maybeDate = textContentArr[0]
+        [maybeDate] = textContentArr;
       }
 
       if (isStringDate(maybeDate)) {
