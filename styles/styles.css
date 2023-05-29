@@ -1065,6 +1065,9 @@ sup,sub {
 /* adjust frankling styles */
 
 .default-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 1.125rem;
   font-family: Siemens Sans Roman,arial,sans-serif;
   line-height: 1.5555555556;
