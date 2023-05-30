@@ -1,15 +1,18 @@
-const closeInnerLevel = (block) => {
-  const wrapper = block.querySelector('.newHomeBurgerMenu__navigationWrapper');
+export const closeInnerLevel = () => {
+  const root = document.querySelector('.newHomeBurgerMenu');
+  if (root) {
+    const wrapper = root.querySelector('.newHomeBurgerMenu__navigationWrapper');
 
-  wrapper.classList.remove('newHomeBurgerMenu__secondNavLevel');
-  wrapper.classList.add('newHomeBurgerMenu__firstNavLevel');
+    wrapper?.classList.remove('newHomeBurgerMenu__secondNavLevel');
+    wrapper?.classList.add('newHomeBurgerMenu__firstNavLevel');
 
-  block.querySelector('.newHomeBurgerMenu__currentPosition').remove();
-  block.querySelector('.newHomeBurgerMenu__showOverviewWrapper').remove();
-  block.querySelector('.newHomeBurgerMenu__navigationRight').remove();
+    root.querySelector('.newHomeBurgerMenu__currentPosition')?.remove();
+    root.querySelector('.newHomeBurgerMenu__showOverviewWrapper')?.remove();
+    root.querySelector('.newHomeBurgerMenu__navigationRight')?.remove();
+  }
 };
 
-const openInnerLevel = (block, element) => {
+export const openInnerLevel = (block, element) => {
   const wrapper = block.querySelector('.newHomeBurgerMenu__navigationWrapper');
 
   wrapper.classList.remove('newHomeBurgerMenu__firstNavLevel');
@@ -20,7 +23,7 @@ const openInnerLevel = (block, element) => {
   backButton.classList.add('newHomeBurgerMenu__currentPosition');
   backButton.setAttribute('aria-label', 'Burger Menu back button');
   backButton.setAttribute('data-ste-element', 'Main menu');
-  backButton.addEventListener('click', () => closeInnerLevel(block));
+  backButton.addEventListener('click', closeInnerLevel);
 
   // Create the arrow icon for the back button
   const arrowIcon = document.createElement('span');
@@ -41,7 +44,10 @@ const openInnerLevel = (block, element) => {
   showOverviewWrapper.classList.add('newHomeBurgerMenu__showOverviewWrapper');
 
   // Create the show overview link
-  const showOverviewLink = element.querySelector('a');
+  let showOverviewLink = element.querySelector('button');
+  if (showOverviewLink === null) {
+    showOverviewLink = element.querySelector('a');
+  }
   showOverviewLink.classList.add('newHomeBurgerMenu__showOverview', 'newHomeBurgerMenu__showOverviewAppear');
 
   showOverviewWrapper.appendChild(showOverviewLink);
@@ -67,6 +73,32 @@ const openInnerLevel = (block, element) => {
   other.append(innerNavigation);
   navigationRight.append(other);
   navigationBody.append(navigationRight);
+};
+
+const createNavigationHeader = () => {
+  // Create the outer div element with the "newHomeBurgerMenu__navigationHeader" class
+  const outerDiv = document.createElement('div');
+  outerDiv.className = 'newHomeBurgerMenu__navigationHeader';
+
+  // Create the inner div element with the "newHomeBurgerMenu__closeElement" class
+  const innerDiv = document.createElement('div');
+  innerDiv.className = 'newHomeBurgerMenu__closeElement';
+
+  // Create the button element with the specified attributes
+  const button = document.createElement('button');
+  button.id = 'close';
+  button.setAttribute('aria-label', 'Menu close');
+  button.className = 'newHomeBurgerMenu__navigationClose';
+  button.setAttribute('data-ste-element', 'Menu close');
+
+  // Append the button to the inner div
+  innerDiv.appendChild(button);
+
+  // Append the inner div to the outer div
+  outerDiv.appendChild(innerDiv);
+
+  // Append the outer div to the document body (or any other desired parent element)
+  return outerDiv;
 };
 
 const createNavigation = (navigationBlock, classNames, block) => {
@@ -116,6 +148,8 @@ export default function decorate(block) {
   div3.className = 'newHomeBurgerMenu__navigationBody';
   div3.setAttribute('data-testid', 'burger-menu-component-navigation-body');
 
+  const navigationHeader = createNavigationHeader();
+
   const div4 = document.createElement('div');
   div4.className = 'newHomeBurgerMenu__navigationLeft';
   div4.setAttribute('data-testid', 'burger-menu-component-navigation-left');
@@ -124,7 +158,8 @@ export default function decorate(block) {
   div5.className = 'newHomeBurgerMenu__firstLevel';
   div5.setAttribute('data-testid', 'burger-menu-component-first-level');
 
-  block.querySelectorAll('div > ul').forEach((ul, index) => {
+  const firstLevelNavigation = block.querySelectorAll('div > ul');
+  firstLevelNavigation.forEach((ul, index) => {
     let classNames = {
       ul: [],
       li: ['newHomeBurgerMenu__firstLinkappear', 'firstItem'],
@@ -146,6 +181,7 @@ export default function decorate(block) {
   // Append elements to construct the HTML block
   div4.appendChild(div5);
   div3.appendChild(div4);
+  nav.appendChild(navigationHeader);
   nav.appendChild(div3);
   div2.appendChild(nav);
   div1.appendChild(div2);

@@ -1,5 +1,12 @@
-/* Styles copied from siemens.com PROD */
 /* stylelint-disable */
+/* New Styles */
+@media (min-width: 1440px) {
+    .newHomeBurgerMenu__firstLevel > ul {
+        display: none;
+    }
+}
+
+/* Styles copied from siemens.com PROD */
 
 .newHomeBurgerMenu {
     position: fixed;
@@ -359,7 +366,7 @@
 
 @media (min-width: 1440px) {
     .newHomeBurgerMenu__currentPosition {
-        display:flex;
+        display:none; /* Changed in Franklin */
         width: auto;
         margin-left: 0
     }

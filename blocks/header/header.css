@@ -5,6 +5,10 @@
   display: none;
 }
 
+.newHomeHeader__navigation li ul {
+  display: none;
+}
+
 /* Styles copied from siemens.com PROD */
 
 .newHomeHeader {
