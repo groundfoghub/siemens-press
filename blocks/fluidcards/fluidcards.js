@@ -106,7 +106,14 @@ export default function decorate(block) {
     // Remaining paragraphs, can be...
     const contentToAdd = [...element.querySelectorAll('p')];
     contentToAdd.forEach((node) => {
-      const [, maybeDate] = node.textContent.split(',');
+      let maybeDate;
+      const textContentArr = node.textContent.split(',');
+
+      if (textContentArr.length > 1) {
+        [, maybeDate] = textContentArr;
+      } else {
+        [maybeDate] = textContentArr;
+      }
 
       if (isStringDate(maybeDate)) {
         // ... the card event time and location,
